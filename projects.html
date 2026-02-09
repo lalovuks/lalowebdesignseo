@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lalo Web Agency - Portfolio Projects</title>
+    <meta name="description" content="Explore innovative web development projects by Lalo Web Agency. Professional website creation, custom web design, and modern web solutions.">
+    <meta name="keywords" content="website creation, web design, web development, custom websites, responsive design, modern web solutions, professional web design, digital agency, web applications, website builder, creative web design, business websites, Lalo Web Agency">
+    <link rel="icon" type="image/png" href="ED DEV.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gradient-1: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            --gradient-2: linear-gradient(135deg, #2a5298 0%, #3d6cb9 100%);
+            --gradient-3: linear-gradient(135deg, #3d6cb9 0%, #5586d4 100%);
+            --gradient-4: linear-gradient(135deg, #5586d4 0%, #6fa3e8 100%);
+            --gradient-5: linear-gradient(135deg, #6fa3e8 0%, #89b8f0 100%);
+            --gradient-6: linear-gradient(135deg, #89b8f0 0%, #b8926e 100%);
+            --gradient-7: linear-gradient(135deg, #b8926e 0%, #d97941 100%);
+            --gradient-8: linear-gradient(135deg, #d97941 0%, #ff6b35 100%);
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            cursor: none;
+            overflow-x: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        /* --- Boxish Custom Cursor --- */
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #ff6b35;
+            /* Box design: square corners */
+            border-radius: 4px; 
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 107, 53, 0.1);
+            box-shadow: 0 0 15px rgba(255, 107, 53, 0.3);
+            will-change: transform;
+            /* Instant response */
+            transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, transform 0s;
+        }
+
+        /* Center dot in box */
+        .cursor::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 4px;
+            height: 4px;
+            background: #ff6b35;
+            border-radius: 1px; /* Slightly boxy dot */
+        }
+
+        /* Expand state for hovering over links */
+        .cursor.expand {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 107, 53, 0.2);
+            border-color: #f7931e;
+            transform: translate(-50%, -50%) rotate(45deg); /* Rotates box on hover for flair */
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e3c72 0%, #ff6b35 100%);
+            z-index: 9998;
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Video Background */
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .video-background::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(2px);
+        }
+
+        .video-background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Header */
+        header {
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-link:hover {
+            transform: scale(1.05);
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            filter: drop-shadow(0 4px 20px rgba(255, 107, 53, 0.4));
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #ff6b35 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleFade 1s ease-out;
+        }
+
+        @keyframes titleFade {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+            animation: titleFade 1s ease-out 0.2s backwards;
+        }
+
+        /* Projects Container */
+        .projects-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: cardSlideIn 0.6s ease-out backwards;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+        .project-card:nth-child(7) { animation-delay: 0.7s; }
+        .project-card:nth-child(8) { animation-delay: 0.8s; }
+
+        @keyframes cardSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        .project-card:nth-child(1)::before { background: var(--gradient-1); }
+        .project-card:nth-child(2)::before { background: var(--gradient-2); }
+        .project-card:nth-child(3)::before { background: var(--gradient-3); }
+        .project-card:nth-child(4)::before { background: var(--gradient-4); }
+        .project-card:nth-child(5)::before { background: var(--gradient-5); }
+        .project-card:nth-child(6)::before { background: var(--gradient-6); }
+        .project-card:nth-child(7)::before { background: var(--gradient-7); }
+        .project-card:nth-child(8)::before { background: var(--gradient-8); }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.3);
+        }
+
+        .project-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-info h3 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .project-info p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        /* Animated Buttons */
+        .project-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .project-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .project-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .project-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .project-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Button Animation Loop */
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(255, 107, 53, 0);
+            }
+        }
+
+        .project-btn {
+            animation: pulse 2s infinite;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-section h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1.5rem 4rem;
+            background: linear-gradient(135deg, #1e3c72 0%, #ff6b35 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.3rem;
+            letter-spacing: 0.05em;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.5);
+        }
+
+        .cta-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            /* Hide cursor system on mobile and tablets to save performance */
+            .cursor, .cursor-trail-dot {
+                display: none !important;
+            }
+
+            body {
+                cursor: auto;
+            }
+
+            .project-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .project-image {
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor"></div>
+
+    <div class="scroll-progress"></div>
+
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <header>
+        <a href="https://www.lalowebagency.biz/" class="logo-link">
+            <img src="LWAF.png" alt="Lalo Web Agency Logo" class="logo">
+        </a>
+        <h1>Featured Projects</h1>
+        <p class="subtitle">Crafted with Precision & Passion</p>
+    </header>
+
+    <div class="projects-container">
+        <div class="project-card">
+            <div class="project-content">
+                <img src="hp1.png" alt="Hypest Website" class="project-image">
+                <div class="project-info">
+                    <h3>Hypest Website</h3>
+                    <p>A cutting-edge web experience featuring stunning parallax effects and immersive scrolling mechanics. Built with modern frameworks to deliver smooth, engaging interactions that captivate visitors from the first scroll.</p>
+                    <a href="https://hypest-website.vercel.app/" class="project-btn" target="_blank" rel="noopener">
+                        <span>View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <img src="mp1.png" alt="Parallax Mechanic" class="project-image">
+                <div class="project-info">
+                    <h3>Parallax Mechanic</h3>
+                    <p>An innovative demonstration of advanced parallax scrolling techniques. This project showcases depth, motion, and visual storytelling through layered animations that respond dynamically to user interaction.</p>
+                    <a href="https://parallax-mechanic.pages.dev/" class="project-btn" target="_blank" rel="noopener">
+                        <span>View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <img src="abl 1.png" alt="Agriculture Business Link" class="project-image">
+                <div class="project-info">
+                    <h3>Agriculture Business Link</h3>
+                    <p>A comprehensive digital platform connecting agricultural businesses with resources, tools, and networks. Features intuitive navigation and responsive design optimized for industry professionals on any device.</p>
+                    <a href="https://agriculturebusiness.link/" class="project-btn" target="_blank" rel="noopener">
+                        <span>View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <img src="hp2.png" alt="Hypest Platform" class="project-image">
+                <div class="project-info">
+                    <h3>Hypest Platform</h3>
+                    <p>A sleek, performance-driven web application with emphasis on user experience and visual appeal. Combining minimalist design principles with powerful functionality for seamless digital interactions.</p>
+                    <a href="https://hypest.vercel.app/" class="project-btn" target="_blank" rel="noopener">
+                        <span>View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <img src="gc1.png" alt="Garden Calculator" class="project-image">
+                <div class="project-info">
+                    <h3>Garden Calculator Refined</h3>
+                    <p>An elegant tool for gardening enthusiasts to plan and optimize their growing spaces. Features precise calculations, intuitive controls, and a refined interface that makes garden planning effortless and enjoyable.</p>
+                    <a href="https://garden-calc-refined.vercel.app/" class="project-btn" target="_blank" rel="noopener">
+                        <span>View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <img src="abl 2.png" alt="Agricultural Website with Sound Effects" class="project-image">
+                <div class="project-info">
+                    <h3>ABL with Sound Effects</h3>
+                    <p>A showcase of custom-coded design excellence with attention to detail in every pixel. This project demonstrates the perfect marriage of creative vision and sound effects in modern web development.</p>
+                    <a href="https://abl-coded-design.vercel.app/index.html" class="project-btn" target="_blank" rel="noopener">
+                        <span>View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <img src="pc1.png" alt="Chicken Profit Calculator" class="project-image">
+                <div class="project-info">
+                    <h3>Chicken Profit Calculator</h3>
+                    <p>A specialized business intelligence tool for poultry farmers to analyze profitability and optimize operations. Features real-time calculations and data visualization for informed decision-making.</p>
+                    <a href="https://chicken-profit-calculator.vercel.app/" class="project-btn" target="_blank" rel="noopener">
+                        <span>View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-content">
+                <img src="fc1.png" alt="Chicken Feed Calculator" class="project-image">
+                <div class="project-info">
+                    <h3>Chicken Feed Calculator</h3>
+                    <p>An essential nutritional planning tool for poultry operations. Helps farmers calculate optimal feed ratios and costs with precision, ensuring healthy flocks and efficient resource management.</p>
+                    <a href="https://chicken-feed-calculator-abl.vercel.app/" class="project-btn" target="_blank" rel="noopener">
+                        <span>View Project →</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Let's bring your vision to life with cutting-edge web solutions that drive results and captivate your audience.</p>
+        <a href="https://www.lalowebagency.biz/" class="cta-btn" target="_blank" rel="noopener">
+            <span>Get Started Today →</span>
+        </a>
+    </section>
+
+    <script>
+        const cursor = document.querySelector('.cursor');
+        let mouseX = 0;
+        let mouseY = 0;
+        const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+        // Track mouse movement
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            // Immediate cursor positioning
+            cursor.style.left = `${mouseX}px`;
+            cursor.style.top = `${mouseY}px`;
+        }, { passive: true });
+
+        // TRAIL SYSTEM - Only initialize if NOT a touch device
+        if (!isTouchDevice) {
+            const trailDots = [];
+            const trailLength = 6;
+            
+            for (let i = 0; i < trailLength; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'cursor-trail-dot';
+                dot.style.cssText = `
+                    position: fixed;
+                    width: ${12 - i * 1.5}px;
+                    height: ${12 - i * 1.5}px;
+                    background: rgba(255, 107, 53, ${0.6 - i * 0.1});
+                    border: 1px solid rgba(255, 107, 53, 0.4);
+                    border-radius: 2px;
+                    pointer-events: none;
+                    z-index: 9999;
+                    transform: translate(-50%, -50%);
+                    will-change: transform;
+                `;
+                document.body.appendChild(dot);
+                trailDots.push({ element: dot, x: 0, y: 0 });
+            }
+
+            function animateTrail() {
+                let prevX = mouseX;
+                let prevY = mouseY;
+
+                trailDots.forEach((trail, index) => {
+                    const speed = 0.35 - (index * 0.04); // Smooth following speed
+                    trail.x += (prevX - trail.x) * speed;
+                    trail.y += (prevY - trail.y) * speed;
+                    trail.element.style.transform = `translate(${trail.x}px, ${trail.y}px) translate(-50%, -50%)`;
+                    prevX = trail.x;
+                    prevY = trail.y;
+                });
+
+                requestAnimationFrame(animateTrail);
+            }
+            animateTrail();
+        }
+
+        // Hover effects
+        const interactables = document.querySelectorAll('a, .project-btn, .cta-btn, .logo-link');
+        interactables.forEach(item => {
+            item.addEventListener('mouseenter', () => cursor.classList.add('expand'));
+            item.addEventListener('mouseleave', () => cursor.classList.remove('expand'));
+        });
+
+        // Scroll Progress
+        window.addEventListener('scroll', () => {
+            const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrolled = (window.scrollY / scrollHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrolled + '%';
+        }, { passive: true });
+
+        // Intersection Observer for cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.project-card').forEach(card => observer.observe(card));
+    </script>
+</body>
+</html>

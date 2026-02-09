@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-89RCJR05T5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-89RCJR05T5');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- META TAGS FOR SEO -->
+    <meta name="description" content="LaloWebAgency specializes in affordable, professional websites for small and medium businesses. Boost your leads, sales, and online presence with expert web design, SEO, and automation solutions.">
+    <meta name="keywords" content="Web Design, Web Development, SEO Services, Custom Web Features, Business Automation, LaloWebAgency, Affordable Websites, Cloud Hosting, AWS, Cloudflare, Vercel">
+    <meta name="author" content="LaloWebAgency">
+    <meta property="og:title" content="LaloWebAgency | Expert Web Design & Digital Solutions">
+    <meta property="og:description" content="Grow your business online with fast, secure, and professional websites. LaloWebAgency delivers web design, SEO, automation, and custom web solutions tailored to your business.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.lalowebagency.com/">
+    <meta property="og:image" content="https://www.lalowebagency.com/Cosmic+Galaxy+Portrait+Enhanced.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LaloWebAgency | Expert Web Design & Digital Solutions">
+    <meta name="twitter:description" content="Boost your leads, sales, and online presence with professional websites and automation solutions from LaloWebAgency.">
+    <meta name="twitter:image" content="https://www.lalowebagency.com/Cosmic+Galaxy+Portrait+Enhanced.png">
+    <title>Websites By Lalo</title>
+    <link rel="icon" type="image/png" href="LWAF.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            color: #333333;
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+        }
+
+        /* STICKY BLURRY MENU */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #1A73E8;
+            font-weight: bold;
+            font-size: 15px;
+            padding: 8px 15px;
+            transition: color 0.3s;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #1A73E8;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 85px;
+                left: -100%;
+                width: 100%;
+                flex-direction: column;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(15px);
+                padding: 20px;
+                gap: 0;
+                transition: left 0.3s ease;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid rgba(26, 115, 232, 0.1);
+            }
+
+            nav ul li:last-child {
+                border-bottom: none;
+            }
+
+            nav a {
+                display: block;
+                padding: 15px;
+            }
+        }
+
+        /* HERO SECTION - IMAGE UNOBSTRUCTED */
+        .hero-new {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-border-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .image-border-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        /* Image with 3D zoom animation */
+        .image-wrapper {
+            perspective: 1000px;
+            width: 100%;
+        }
+
+        @keyframes zoomDepth {
+            0% {
+                transform: scale(1) translateZ(0px);
+            }
+            50% {
+                transform: scale(1.1) translateZ(50px);
+            }
+            100% {
+                transform: scale(1) translateZ(0px);
+            }
+        }
+
+        .free-form-bg {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            opacity: 0.9;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+            animation: zoomDepth 6s ease-in-out infinite;
+            transform-style: preserve-3d;
+        }
+
+        .text-card-white {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .text-card-white h1 {
+            font-size: clamp(24px, 4vw, 38px);
+            color: #1A73E8;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        /* GOLDEN GLOW BUTTONS */
+        @keyframes golden-glow {
+            0% { box-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; transform: scale(1); }
+            50% { box-shadow: 0 0 20px #FFD700, 0 0 35px #FFA500; transform: scale(1.02); }
+            100% { box-shadow: 0 0 5px #FFD700, 0 0 10px #FFD700; transform: scale(1); }
+        }
+
+        .glow-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            animation: golden-glow 2.5s infinite ease-in-out;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* SECTION STYLING WITH SUBTLE COLORS */
+        section { 
+            padding: 80px 20px; 
+            text-align: center;
+        }
+        
+        section:nth-child(even) {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        section:nth-child(odd) {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+        }
+
+        .marquee-container { 
+            width: 100%; 
+            overflow: hidden; 
+            background: linear-gradient(135deg, #1A73E8 0%, #1557b0 100%);
+            color: white; 
+            padding: 25px 0; 
+        }
+        .marquee { display: flex; animation: scroll 23s linear infinite; white-space: nowrap; }
+        .marquee-item { padding: 0 40px; font-weight: bold; font-size: 18px; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-250%); } }
+
+        .cube-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 25px; 
+            max-width: 1200px; 
+            margin: 40px auto 0; 
+        }
+        .cube { 
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 35px; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); 
+            text-align: left; 
+            border-top: 5px solid #FF6F3C;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .cube:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+        .cube h3 { color: #1A73E8; margin-bottom: 15px; font-size: 20px; }
+        .cube p { line-height: 1.6; color: #555; }
+
+        .step { 
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+            padding: 20px; 
+            margin: 12px auto; 
+            max-width: 750px; 
+            border-radius: 10px; 
+            border-left: 6px solid #FFD700; 
+            text-align: left; 
+            font-weight: bold; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+        }
+
+        .pricing-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid #1A73E8;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .price {
+            font-size: 36px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #1A73E8;
+        }
+
+        /* FAQ Styling */
+        .faq-section {
+            max-width: 900px;
+            margin: 40px auto;
+            text-align: left;
+        }
+
+        .faq-item {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px;
+            background: none;
+            border: none;
+            text-align: left;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            color: #1A73E8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:after {
+            content: '▼';
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-question:after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 20px 20px;
+        }
+
+        .faq-answer p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .disclaimer-section {
+            max-width: 900px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, #fff3cd 0%, #fff9e6 100%);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .disclaimer-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .disclaimer-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .disclaimer-content.active {
+            max-height: 2000px;
+            padding: 20px;
+        }
+
+        .dropdown-icon {
+            transition: transform 0.3s;
+        }
+
+        .dropdown-icon.active {
+            transform: rotate(180deg);
+        }
+
+        .payment-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .payment-icon {
+            background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #333 0%, #1a1a1a 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-icon {
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .footer-icon:hover {
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body>
+
+<nav id="navbar">
+    <img src="LWAF.png" alt="Logo" style="height: 70px; cursor: pointer;" onclick="window.location.href='#hero'">
+    <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul id="navMenu">
+        <li><a href="#hero" onclick="closeMenu()">Home</a></li>
+        <li><a href="#is-this-you" onclick="closeMenu()">Why A Website</a></li>
+        <li><a href="#why-website" onclick="closeMenu()">Solutions</a></li>
+        <li><a href="#pricing" onclick="closeMenu()">Pricing</a></li>
+        <li><a href="#how-it-works" onclick="closeMenu()">Process</a></li>
+    </ul>
+</nav>
+
+    <section id="hero" class="hero-new">
+        <div class="image-border-container">
+            <img src="Cosmic+Galaxy+Portrait+Enhanced.png" alt="Cosmic Background" class="free-form-bg">
+            <div class="text-card-white">
+                <h1>More leads, more sales, one expertly designed website.</h1>
+                <a href="#pricing" class="glow-button">Get Started Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="is-this-you">
+        <h2 style="margin-bottom: 30px;">Does your business face these challenges?</h2>
+        <div class="marquee-container">
+            <div class="marquee">
+                <span class="marquee-item">⚠️ No professional website or an outdated design that hurts credibility</span>
+                <span class="marquee-item">⚠️ Poor visibility on Google and search engines</span>
+                <span class="marquee-item">⚠️ Website traffic that doesn't convert into leads or sales</span>
+                <span class="marquee-item">⚠️ A weak or broken mobile experience for customers</span>
+                <span class="marquee-item">⚠️ Slow loading speeds and technical performance issues</span>
+                <span class="marquee-item">⚠️ Difficulty updating or managing website content</span>
+                <span class="marquee-item">⚠️ Unclear branding and messaging that fails to build trust</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="why-website">
+        <h2>Why Partner with Lalo Web Agency?</h2>
+        <div class="cube">
+                <h3>Many Completed Projects</h3>
+                <p>We have Successfully completed many client & personal websites & Webapps for our clients. We earn your trust by finishing your project in a timely and delievering quality projects!!</p>
+         <a href="/projects.html" class="glow-button">See For Yourself!!</a>    
+        </div>
+        <div class="cube-container">
+            <div class="cube">
+                <h3>High Website Costs Limiting Your Business Growth</h3>
+                <p>Many businesses struggle with high website costs, making it hard to maintain a professional online presence. At Lalo Web Agency, we build and deploy your website using trusted platforms like AWS, Cloudflare, and Vercel. This "pay-as-you-go" approach keeps your monthly costs extremely low — and in many cases, almost free. You get a fast, secure, and professional website without overspending. It's one of the most affordable ways to grow your business online while maintaining top performance.</p>
+            </div>
+            <div class="cube">
+                <h3>Outdated or Unprofessional Website Design</h3>
+                <p>Many businesses struggle with websites that look outdated, unappealing, or cluttered, which can turn potential customers away. Lalo Web Agency creates modern, visually clear, and professional websites that immediately capture attention, helping your business attract more visitors and convert them into paying customers.</p>
+            </div>
+            <div class="cube">
+                <h3>Poor Search Engine Visibility (SEO Issues)</h3>
+                <p>Even a beautiful website is ineffective if it doesn't appear in search results. Lalo Web Agency optimizes your website for search engines, improving your visibility so more potential customers find you online, boosting traffic, engagement, and ultimately revenue.</p>
+            </div>
+            <div class="cube">
+                <h3>Slow Website Performance</h3>
+                <p>Websites that load slowly frustrate visitors, leading to higher bounce rates and fewer conversions. Lalo Web Agency ensures fast-loading websites that keep visitors engaged, allowing more users to explore your offerings and increasing the likelihood of sales.</p>
+            </div>
+            <div class="cube">
+                <h3>Lack of Mobile Responsiveness</h3>
+                <p>With most users browsing on mobile devices, websites that aren't mobile-friendly lose a significant audience. Lalo Web Agency designs fully responsive websites that look and function perfectly on any device, ensuring every visitor can navigate your site easily and take action, driving higher conversions.</p>
+            </div>
+            <div class="cube">
+                <h3>Difficulty Managing Content</h3>
+                <p>Outdated or inconsistent content can confuse visitors and reduce trust, lowering conversions. Lalo Web Agency builds websites on intuitive platforms that make content management simple, helping you keep your offerings clear, engaging, and up to date to encourage more customer interactions and purchases.</p>
+            </div>
+            <div class="cube">
+                <h3>Poor Conversion and Engagement</h3>
+                <p>A website may attract visitors but fail to turn them into customers if it lacks strategic design and clear calls-to-action. Lalo Web Agency focuses on user-centered design, intuitive navigation, and persuasive messaging, guiding visitors toward key actions, increasing conversions, and driving more revenue.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2>Transparent Pricing</h2>
+        <div class="cube-container">
+            <div class="pricing-card">
+                <h3>Basic Website - Up to 5 Pages</h3>
+                <p>A beautifully designed homepage as well as other pages that you would like to have for your Business. Links to Social Media included in this option.</p>
+                <div class="price">$300</div>
+                <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="glow-button">Buy Now</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Basic Website Plus WordPress Blog</h3>
+                <p>This includes all the features of the Basic Website as well as a ready to go WordPress Admin panel so that you can write and post articles to your audience at your liking.</p>
+                <div class="price">$400</div>
+                <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="glow-button">Get Started</a>
+            </div>
+           
+            <div class="pricing-card">
+                <h3>Basic Website + EMAIL Setup</h3>
+                <p>We create you a Basic Website and a Business Email address linked to your domain name so that you can handle client mail as well as your own mail.</p>
+                <div class="price">$400</div>
+                <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="glow-button">Get Started</a>
+            </div>
+            <div class="pricing-card">
+                <h3>Custom Web Features</h3>
+                <p>This is when you would like to add some custom functionality to your business website like Chat Bots, Api Integration, AI Agents or Web Applications. Book a call to get your solution integrated to your Business Website.</p>
+                <div class="price">Custom</div>
+                <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="glow-button">Get A Quote</a>
+            </div>
+            <div class="pricing-card">
+                <h3>n8n Automation</h3>
+                <p>Streamline your business processes by integrating custom automation with n8n, connecting apps and creating automated workflows. Save time, reduce manual tasks, and boost efficiency—book a call to get your automation solution set up today.</p>
+                <div class="price">Custom</div>
+                <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="glow-button">Get A Quote</a>
+            </div>
+            <div class="pricing-card">
+    <h3>SEO</h3>
+    <p style="font-weight: 600; font-size: 18px; margin-bottom: 8px;">Search Engine Optimization</p>
+    <p style="margin-bottom: 24px;">If you need more web traffic or more clients, get your website to appear at the top of search engine rankings. That's how SEO helps.</p>
+    
+    <div style="display: flex; flex-direction: column; gap: 20px; margin-bottom: 24px;">
+        <!-- Low Ranking Keywords -->
+        <div style="border: 2px solid #e0e0e0; border-radius: 8px; padding: 16px; transition: all 0.3s ease;">
+            <h4 style="margin: 0 0 12px 0; color: #2c3e50; font-size: 16px;">1. Low Ranking Keywords</h4>
+            <div class="price" style="font-size: 24px; margin: 8px 0;">$250</div>
+            <ul style="list-style: none; padding: 0; margin: 12px 0 0 0; text-align: left;">
+                <li style="padding: 4px 0; color: #555;">✓ Topical Keyword Map</li>
+                <li style="padding: 4px 0; color: #555;">✓ 30 Articles</li>
+                <li style="padding: 4px 0; color: #555;">✓ Content Generation</li>
+            </ul>
+            <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="glow-button" style="margin-top: 12px; display: inline-block;">Purchase Now</a>
+        </div>
+        
+        <!-- Medium Ranking Keywords -->
+        <div style="border: 2px solid #3498db; border-radius: 8px; padding: 16px; background: linear-gradient(to bottom, #f8fbff, #ffffff); transition: all 0.3s ease;">
+            <h4 style="margin: 0 0 12px 0; color: #2c3e50; font-size: 16px;">2. Medium Ranking Keywords</h4>
+            <div class="price" style="font-size: 24px; margin: 8px 0;">$500</div>
+            <ul style="list-style: none; padding: 0; margin: 12px 0 0 0; text-align: left;">
+                <li style="padding: 4px 0; color: #555;">✓ Topical Keyword Map</li>
+                <li style="padding: 4px 0; color: #555;">✓ 60 Articles</li>
+                <li style="padding: 4px 0; color: #555;">✓ Content Generation</li>
+            </ul>
+            <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="glow-button" style="margin-top: 12px; display: inline-block;">Purchase Now</a>
+        </div>
+        
+        <!-- High Ranking Keywords -->
+        <div style="border: 2px solid #27ae60; border-radius: 8px; padding: 16px; background: linear-gradient(to bottom, #f0fdf4, #ffffff); position: relative; transition: all 0.3s ease;">
+            <div style="position: absolute; top: -12px; right: 12px; background: #27ae60; color: white; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 600;">BEST VALUE</div>
+            <h4 style="margin: 0 0 12px 0; color: #2c3e50; font-size: 16px;">3. High Ranking Keywords</h4>
+            <div class="price" style="font-size: 24px; margin: 8px 0;">$750</div>
+            <ul style="list-style: none; padding: 0; margin: 12px 0 0 0; text-align: left;">
+                <li style="padding: 4px 0; color: #555;">✓ Competitor Research</li>
+                <li style="padding: 4px 0; color: #555;">✓ Topical Keyword Map</li>
+                <li style="padding: 4px 0; color: #555;">✓ 100 Articles</li>
+                <li style="padding: 4px 0; color: #555;">✓ Content Generation</li>
+            </ul>
+            <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="glow-button" style="margin-top: 12px; display: inline-block;">Purchase Now</a>
+        </div>
+    </div>
+</div>
+        </div>
+        <p style="font-weight: normal; margin-top: 40px; font-size: clamp(16px, 2.5vw, 22px);">Payments completed through:</p>
+        <div class="payment-icons">
+            <div class="payment-icon">Wise</div>
+            <div class="payment-icon">Bank</div>
+            <div class="payment-icon">PayPal</div>
+            <div class="payment-icon">Neteller</div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <h2>How it Works</h2>
+        <div class="steps-container">
+            <div class="step">1️⃣ You describe the goal of your website in the form. </div>
+            <div class="step">2️⃣ You select your desired service from us</div>
+            <div class="step">3️⃣ You send the media & inspiration you wish to use on your website</div>
+            <div class="step">4️⃣ You decide the domain name you wish to use</div>
+            <div class="step">5️⃣ You decide the hosting option</div>
+            <div class="step">6️⃣ We get back to you within a few hours using the details you provided!!</div>
+            <div class="step">7️⃣ We book a Video Call to discuss details & design the best website for you!!!</div>
+            <div class="step">8️⃣ Payment Is Completed</div>
+            <div class="step">9️⃣ We start the development process</div>
+            <div class="step">🔟 Once the website is done, We review & adjust as well as deployment or handing over files!!</div>
+            <div class="step">✅ That's the process we use to create you a cost effective Website Design & Hosting Services</div>
+        </div>
+
+        <div class="disclaimer-section">
+            <div class="disclaimer-header" onclick="toggleDisclaimer()">
+                <span>DISCLAIMER & FAQs</span>
+                <span class="dropdown-icon" id="dropdownIcon">▼</span>
+            </div>
+            <div class="disclaimer-content" id="disclaimerContent">
+                <p style="margin-bottom: 15px;"><strong>LaloWebAgency reserves the right to decline any project that contains pornographic, sexually explicit, misleading, fraudulent, harmful, or gambling-related content.</strong> We are committed to building safe, ethical, and trustworthy digital solutions, and therefore we do not design, develop, or host websites that violate legal, moral, or professional standards.</p>
+                <p style="margin-bottom: 20px;">By using our services, you agree that your project will not involve any illegal activities, deceptive practices, or content that could harm users or promote unethical behavior. LaloWebAgency may suspend or terminate any project found to contain prohibited material at any stage of development.</p>
+            
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+
+                    <div class="faq-item">
+                        <button class="faq-question">Who is LaloWebAgency?</button>
+                        <div class="faq-answer">
+                            <p>LaloWebAgency is a full-service digital agency specializing in web design, development, and digital marketing. We create high-quality websites and applications that help businesses grow online.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">How does Lalo Web Agency save clients on hosting and development costs without compromising quality?</button>
+                        <div class="faq-answer">
+                            <p>We leverage efficient coding practices, scalable cloud hosting and reusable components to minimize costs while maintaining premium quality. Our solutions are optimized to be cost-effective without sacrificing performance.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">What services does Lalo Web Agency offer?</button>
+                        <div class="faq-answer">
+                            <p>Lalo Web Agency offers web design, web development, PWA app development, e-commerce solutions, SEO, digital marketing and IT consulting services.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">How quickly can Lalo Web Agency respond to inquiries submitted through the contact form?</button>
+                        <div class="faq-answer">
+                            <p>We typically respond within 24 hours. For urgent requests, we prioritize messages marked as "ASAP" to provide timely assistance.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">Can LaloWebAgency handle large-scale projects?</button>
+                        <div class="faq-answer">
+                            <p>Yes! Although our preference is with small to medium sized businesses, through our knowledge of cloud infrastructure we can also build scalable solutions that can handle high traffic. We have experience managing small & medium business websites and depending on the complexity of the project, we can communicate whether we can take up the project or not.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">How does LaloWebAgency ensure client data privacy?</button>
+                        <div class="faq-answer">
+                            <p>All client information is securely stored and never shared without consent. We follow best practices for data protection to ensure privacy and confidentiality.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question">Can LaloWebAgency support clients after the website is launched?</button>
+                        <div class="faq-answer">
+                            <p>Absolutely! We provide ongoing support, maintenance, updates, and optimization to ensure your website continues to perform efficiently after launch. A maintenance fee is applicable.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-icons">
+            <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="footer-icon" title="WhatsApp">📱</a>
+            <a href="https://www.linkedin.com/in/edward-mavungah-621036302/" class="footer-icon" title="LinkedIn">💼</a>
+            <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="footer-icon" title="Email">✉️</a>
+            <a href="https://forms.gle/vGdDK8a9yAa2tGGBA" class="footer-icon" title="Zoom">📹</a>
+        </div>
+        <p style="font-weight: bold;">© 2025 LaloWebAgency. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "LaloWebAgency",
+          "url": "https://www.lalowebagency.com",
+          "logo": "https://www.lalowebagency.com/logo.png",
+          "sameAs": [
+            "https://www.linkedin.com/in/edward-mavungah-621036302/",
+            "https://forms.gle/vGdDK8a9yAa2tGGBA"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+267XXXXXXXX",
+            "contactType": "customer service",
+            "availableLanguage": ["English"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "url": "https://www.lalowebagency.com",
+          "name": "LaloWebAgency",
+          "description": "Affordable, professional websites, SEO, and automation solutions for small and medium businesses. Boost your leads, sales, and online presence with LaloWebAgency.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "LaloWebAgency",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.lalowebagency.com/logo.png"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Main JavaScript -->
+    <script>
+        // Hamburger menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('navMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('navMenu');
+            const hamburger = document.querySelector('.hamburger');
+            menu.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Disclaimer toggle
+        function toggleDisclaimer() {
+            const content = document.getElementById('disclaimerContent');
+            const icon = document.getElementById('dropdownIcon');
+            content.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+
+        // FAQ toggle - Wait for DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                });
+            });
+
+            // Observe sections for animation triggers
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px'
+            };
+
+            const sectionObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                sectionObserver.observe(section);
+            });
+
+            // Make hero section visible immediately
+            document.getElementById('hero').style.opacity = '1';
+            document.getElementById('hero').style.transform = 'translateY(0)';
+        });
+    </script>
+    
+</body>
+</html>
+
+
+
+
+
