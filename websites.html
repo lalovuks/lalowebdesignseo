@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Service Locations</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #050810;
+    font-family: 'Space Mono', monospace;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    cursor: default;
+  }
+
+  header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 28px 40px 0;
+    pointer-events: none;
+  }
+
+  .title-label {
+    font-size: 9px;
+    letter-spacing: 5px;
+    color: rgba(0, 212, 255, 0.6);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 800;
+    letter-spacing: -1px;
+    background: linear-gradient(120deg, #fff 0%, #00d4ff 60%, #7c3aed 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    margin-top: 4px;
+    font-size: 9px;
+    color: rgba(100, 116, 139, 0.8);
+    letter-spacing: 2px;
+  }
+
+  canvas {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #tooltip {
+    position: fixed;
+    z-index: 200;
+    background: rgba(6, 12, 30, 0.95);
+    border: 1px solid rgba(0, 212, 255, 0.4);
+    border-radius: 6px;
+    padding: 10px 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    max-width: 240px;
+  }
+
+  #tooltip.visible { opacity: 1; }
+
+  #tooltip .t-id {
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: rgba(0, 212, 255, 0.7);
+    margin-bottom: 4px;
+  }
+
+  #tooltip .t-name {
+    font-size: 11px;
+    color: #e2e8f0;
+    line-height: 1.4;
+  }
+
+  #tooltip .t-hint {
+    font-size: 8px;
+    color: rgba(100, 116, 139, 0.6);
+    margin-top: 5px;
+    letter-spacing: 1px;
+  }
+
+  #legend {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(100, 116, 139, 0.8);
+    text-transform: uppercase;
+  }
+
+  .legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  #node-count {
+    position: fixed;
+    bottom: 24px;
+    left: 40px;
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: rgba(100, 116, 139, 0.4);
+    z-index: 100;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title-label">// network map</div>
+  <h1>Service Locations</h1>
+  <p class="subtitle">hover nodes to explore — click to navigate</p>
+</header>
+
+<canvas id="c"></canvas>
+
+<div id="tooltip">
+  <div class="t-id" id="tip-id"></div>
+  <div class="t-name" id="tip-name"></div>
+  <div class="t-hint">click to open →</div>
+</div>
+
+<div id="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#3b82f6;box-shadow:0 0 6px #3b82f6"></div>Texas</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#10b981;box-shadow:0 0 6px #10b981"></div>United States</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f59e0b;box-shadow:0 0 6px #f59e0b"></div>South Africa</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#ec4899;box-shadow:0 0 6px #ec4899"></div>Botswana &amp; Zimbabwe</div>
+</div>
+
+<div id="node-count">30 nodes online</div>
+
+<script>
+const canvas = document.getElementById('c');
+const ctx = canvas.getContext('2d');
+const tooltip = document.getElementById('tooltip');
+const tipId = document.getElementById('tip-id');
+const tipName = document.getElementById('tip-name');
+
+let W, H;
+let hoveredNode = null;
+let animFrame;
+let startTime = performance.now();
+
+const regions = [
+  {
+    name: 'Texas', color: '#3b82f6', glow: 'rgba(59,130,246,',
+    nodes: [
+      { id: 'TX-01', label: 'Austin', href: 'austin.html' },
+      { id: 'TX-02', label: 'Austin — Cost of Websites', href: 'austincostofwebsites.html' },
+      { id: 'TX-03', label: 'Austin — SMB', href: 'austinsmb.html' },
+      { id: 'TX-04', label: 'Austin TX', href: 'austin-tx.html' },
+      { id: 'TX-05', label: 'Austin — Web Design', href: 'austinwebdesign.html' },
+      { id: 'TX-06', label: 'Dallas', href: 'dallas.html' },
+      { id: 'TX-07', label: 'Dallas — SMB Website', href: 'dallassmbwebsite.html' },
+      { id: 'TX-08', label: 'Dallas — Web Design', href: 'dallaswebdesign.html' },
+      { id: 'TX-09', label: 'Fort Worth — SMB Websites', href: 'fortworthsmbwebsites.html' },
+      { id: 'TX-10', label: 'Fort Worth — Web Design', href: 'fortworthwebdesign.html' },
+      { id: 'TX-11', label: 'Houston', href: 'houston.html' },
+      { id: 'TX-12', label: 'Houston — SMB Websites', href: 'houstonsmbwebsites.html' },
+      { id: 'TX-13', label: 'Houston — Web Design', href: 'houstonwebdesign.html' },
+      { id: 'TX-14', label: 'San Antonio — SMB Websites', href: 'sanantoniosmbwebsites.html' },
+      { id: 'TX-15', label: 'San Antonio — Web Design', href: 'sanantoniowebdesign.html' },
+      { id: 'TX-16', label: 'San Antonio — Web Design SMB', href: 'sanantoniowebdesignsmb.html' },
+    ]
+  },
+  {
+    name: 'United States', color: '#10b981', glow: 'rgba(16,185,129,',
+    nodes: [
+      { id: 'US-01', label: 'Denver — Web Design SMB', href: 'denverwebdesignsmb.html' },
+      { id: 'US-02', label: 'Phoenix — Web Design', href: 'phoenixwebdesign.html' },
+      { id: 'US-03', label: 'Phoenix — Websites Cost', href: 'phoenixwebsitescost.html' },
+    ]
+  },
+  {
+    name: 'South Africa', color: '#f59e0b', glow: 'rgba(245,158,11,',
+    nodes: [
+      { id: 'ZA-01', label: 'Cape Town', href: 'capetown.html' },
+      { id: 'ZA-02', label: 'Cape Town — Business Websites', href: 'capetownbusinesswebsites.html' },
+      { id: 'ZA-03', label: 'Cape Town — SMB Websites', href: 'capetownsmbwebsites.html' },
+      { id: 'ZA-04', label: 'Cape Town — Web Design', href: 'capetownwebdesign.html' },
+      { id: 'ZA-05', label: 'Johannesburg', href: 'johannesburg.html' },
+      { id: 'ZA-06', label: 'Joburg — Web Design', href: 'joburgwebdesign.html' },
+      { id: 'ZA-07', label: 'Pretoria — Business Websites', href: 'pretoriabusinesswebsites.html' },
+    ]
+  },
+  {
+    name: 'Botswana & Zimbabwe', color: '#ec4899', glow: 'rgba(236,72,153,',
+    nodes: [
+      { id: 'BW-01', label: 'Gaborone', href: 'gaborone.html' },
+      { id: 'BW-02', label: 'Francistown', href: 'francistown.html' },
+      { id: 'BW-03', label: 'Lobatse', href: 'lobatse.html' },
+      { id: 'BW-04', label: 'Maun', href: 'maun.html' },
+      { id: 'ZW-01', label: 'Harare', href: 'harare.html' },
+    ]
+  }
+];
+
+let allNodes = [];
+let bgParticles = [];
+
+function initNodes() {
+  allNodes = [];
+
+  const pad = { top: 120, bottom: 60, left: 60, right: 60 };
+  const uw = W - pad.left - pad.right;
+  const uh = H - pad.top - pad.bottom;
+
+  // Cluster centers
+  const centers = [
+    { cx: pad.left + uw * 0.25, cy: pad.top + uh * 0.38 }, // TX
+    { cx: pad.left + uw * 0.75, cy: pad.top + uh * 0.22 }, // US
+    { cx: pad.left + uw * 0.72, cy: pad.top + uh * 0.72 }, // ZA
+    { cx: pad.left + uw * 0.24, cy: pad.top + uh * 0.75 }, // BW
+  ];
+
+  regions.forEach((region, ri) => {
+    const { cx, cy } = centers[ri];
+    const count = region.nodes.length;
+    const spread = Math.min(uw, uh) * (count > 8 ? 0.17 : 0.1);
+
+    region.nodes.forEach((n, i) => {
+      const angle = (i / count) * Math.PI * 2 - Math.PI / 2;
+      const rad = count === 1 ? 0 : spread;
+      const jx = (Math.random() - 0.5) * spread * 0.35;
+      const jy = (Math.random() - 0.5) * spread * 0.35;
+      const bx = cx + Math.cos(angle) * rad + jx;
+      const by = cy + Math.sin(angle) * rad + jy;
+
+      allNodes.push({
+        x: bx, y: by,
+        baseX: bx, baseY: by,
+        r: 7,
+        label: n.label,
+        id: n.id,
+        href: n.href,
+        color: region.color,
+        glow: region.glow,
+        regionIdx: ri,
+        phase: Math.random() * Math.PI * 2,
+        phaseY: Math.random() * Math.PI * 2,
+      });
+    });
+  });
+
+  // Ambient background particles
+  bgParticles = Array.from({ length: 55 }, () => ({
+    x: Math.random() * W, y: Math.random() * H,
+    r: Math.random() * 1.1 + 0.2,
+    alpha: Math.random() * 0.25 + 0.04,
+    vx: (Math.random() - 0.5) * 0.08,
+    vy: (Math.random() - 0.5) * 0.08,
+  }));
+}
+
+function hexToRgb(hex) {
+  return [
+    parseInt(hex.slice(1, 3), 16),
+    parseInt(hex.slice(3, 5), 16),
+    parseInt(hex.slice(5, 7), 16),
+  ];
+}
+
+function hexAlpha(hex, alpha) {
+  const [r, g, b] = hexToRgb(hex);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function lighten(hex, amt) {
+  const [r, g, b] = hexToRgb(hex);
+  return `rgb(${Math.min(255,r+Math.round(255*amt))},${Math.min(255,g+Math.round(255*amt))},${Math.min(255,b+Math.round(255*amt))})`;
+}
+
+function draw(now) {
+  const t = now - startTime;
+  ctx.clearRect(0, 0, W, H);
+
+  // Background
+  const bgGrd = ctx.createRadialGradient(W/2, H/2, 0, W/2, H/2, Math.max(W,H)*0.8);
+  bgGrd.addColorStop(0, '#0c1220');
+  bgGrd.addColorStop(1, '#050810');
+  ctx.fillStyle = bgGrd;
+  ctx.fillRect(0, 0, W, H);
+
+  // Subtle region glow halos
+  const regionCenters = [
+    { cx: W*0.25, cy: H*0.38 },
+    { cx: W*0.75, cy: H*0.22 },
+    { cx: W*0.72, cy: H*0.72 },
+    { cx: W*0.24, cy: H*0.75 },
+  ];
+  const regionColors = ['59,130,246','16,185,129','245,158,11','236,72,153'];
+  regionCenters.forEach(({ cx, cy }, i) => {
+    const halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, Math.min(W,H)*0.22);
+    halo.addColorStop(0, `rgba(${regionColors[i]},0.04)`);
+    halo.addColorStop(1, `rgba(${regionColors[i]},0)`);
+    ctx.fillStyle = halo;
+    ctx.fillRect(0, 0, W, H);
+  });
+
+  // Animate nodes with gentle float
+  allNodes.forEach(n => {
+    n.x = n.baseX + Math.sin(t * 0.0007 + n.phase) * 14;
+    n.y = n.baseY + Math.cos(t * 0.0005 + n.phaseY) * 10;
+  });
+
+  // Ambient particles
+  bgParticles.forEach(p => {
+    p.x = (p.x + p.vx + W) % W;
+    p.y = (p.y + p.vy + H) % H;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+    ctx.fillStyle = `rgba(255,255,255,${p.alpha})`;
+    ctx.fill();
+  });
+
+  // Draw connections
+  for (let i = 0; i < allNodes.length; i++) {
+    for (let j = i + 1; j < allNodes.length; j++) {
+      const a = allNodes[i], b = allNodes[j];
+      const dx = a.x - b.x, dy = a.y - b.y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      const sameRegion = a.regionIdx === b.regionIdx;
+      const maxDist = sameRegion ? 230 : 130;
+      if (dist > maxDist) continue;
+
+      const isHovA = hoveredNode === a;
+      const isHovB = hoveredNode === b;
+      const isActive = isHovA || isHovB;
+
+      let alpha, lineW;
+      if (isActive) {
+        alpha = 0.9;
+        lineW = 1.5;
+      } else {
+        alpha = (1 - dist/maxDist) * (sameRegion ? 0.18 : 0.07);
+        lineW = sameRegion ? 0.7 : 0.35;
+      }
+
+      ctx.beginPath();
+      ctx.moveTo(a.x, a.y);
+      ctx.lineTo(b.x, b.y);
+
+      if (isActive) {
+        const grad = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+        grad.addColorStop(0, hexAlpha(a.color, alpha));
+        grad.addColorStop(1, hexAlpha(b.color, alpha));
+        ctx.strokeStyle = grad;
+        ctx.shadowColor = isHovA ? a.color : b.color;
+        ctx.shadowBlur = 10;
+      } else {
+        ctx.strokeStyle = hexAlpha(sameRegion ? a.color : '#475569', alpha);
+        ctx.shadowBlur = 0;
+      }
+
+      ctx.lineWidth = lineW;
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+    }
+  }
+
+  // Draw nodes
+  allNodes.forEach(n => {
+    const isHov = hoveredNode === n;
+    const pulse = isHov ? 1 + 0.12 * Math.sin(t * 0.006) : 1 + 0.03 * Math.sin(t * 0.0015 + n.phase);
+    const r = n.r * pulse;
+
+    // Outer ambient glow
+    const glowR = isHov ? r * 5 : r * 2.5;
+    const glowA = isHov ? 0.3 : 0.1;
+    const glowGrd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, glowR);
+    glowGrd.addColorStop(0, n.glow + glowA + ')');
+    glowGrd.addColorStop(0.5, n.glow + (glowA * 0.3) + ')');
+    glowGrd.addColorStop(1, n.glow + '0)');
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, glowR, 0, Math.PI*2);
+    ctx.fillStyle = glowGrd;
+    ctx.fill();
+
+    // Ring for hovered
+    if (isHov) {
+      const ringR = r + 5 + 2 * Math.sin(t * 0.006);
+      ctx.beginPath();
+      ctx.arc(n.x, n.y, ringR, 0, Math.PI*2);
+      ctx.strokeStyle = hexAlpha(n.color, 0.4);
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    }
+
+    // Node fill
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, r, 0, Math.PI*2);
+    const fill = ctx.createRadialGradient(n.x - r*0.35, n.y - r*0.35, r*0.05, n.x, n.y, r);
+    fill.addColorStop(0, lighten(n.color, 0.55));
+    fill.addColorStop(1, n.color);
+    ctx.fillStyle = fill;
+    ctx.shadowColor = n.color;
+    ctx.shadowBlur = isHov ? 22 : 10;
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Specular highlight
+    ctx.beginPath();
+    ctx.arc(n.x - r*0.28, n.y - r*0.28, r*0.28, 0, Math.PI*2);
+    ctx.fillStyle = 'rgba(255,255,255,0.25)';
+    ctx.fill();
+
+    // Border
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, r, 0, Math.PI*2);
+    ctx.strokeStyle = isHov ? 'rgba(255,255,255,0.9)' : hexAlpha(n.color, 0.5);
+    ctx.lineWidth = isHov ? 1.5 : 0.8;
+    ctx.stroke();
+
+    // Always-visible ID label (tiny)
+    ctx.font = '7px "Space Mono", monospace';
+    ctx.textAlign = 'center';
+    ctx.fillStyle = hexAlpha(n.color, isHov ? 0 : 0.55);
+    ctx.fillText(n.id, n.x, n.y + r + 11);
+  });
+
+  animFrame = requestAnimationFrame(draw);
+}
+
+function hitTest(mx, my) {
+  let closest = null, minDist = 22;
+  allNodes.forEach(n => {
+    const d = Math.hypot(mx - n.x, my - n.y);
+    if (d < Math.max(n.r + 10, 16) && d < minDist) {
+      closest = n;
+      minDist = d;
+    }
+  });
+  return closest;
+}
+
+canvas.addEventListener('mousemove', e => {
+  const mx = e.clientX, my = e.clientY;
+  hoveredNode = hitTest(mx, my);
+
+  if (hoveredNode) {
+    canvas.style.cursor = 'pointer';
+    tipId.textContent = hoveredNode.id;
+    tipName.textContent = hoveredNode.label;
+    tooltip.style.borderColor = hexAlpha(hoveredNode.color, 0.6);
+    tooltip.classList.add('visible');
+    tooltip.style.left = Math.min(mx + 18, window.innerWidth - 260) + 'px';
+    tooltip.style.top = Math.min(my - 10, window.innerHeight - 90) + 'px';
+  } else {
+    canvas.style.cursor = 'default';
+    tooltip.classList.remove('visible');
+  }
+});
+
+canvas.addEventListener('mouseleave', () => {
+  hoveredNode = null;
+  tooltip.classList.remove('visible');
+});
+
+canvas.addEventListener('click', () => {
+  if (hoveredNode) window.location.href = hoveredNode.href;
+});
+
+canvas.addEventListener('touchstart', e => {
+  e.preventDefault();
+  const t = e.touches[0];
+  const node = hitTest(t.clientX, t.clientY);
+  if (node) window.location.href = node.href;
+}, { passive: false });
+
+function resize() {
+  W = canvas.width = window.innerWidth;
+  H = canvas.height = window.innerHeight;
+  initNodes();
+}
+
+window.addEventListener('resize', resize);
+resize();
+cancelAnimationFrame(animFrame);
+requestAnimationFrame(draw);
+</script>
+</body>
+</html>
