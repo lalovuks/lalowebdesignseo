@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Development in Gaborone | Lalowebagency Cloud & Automation Solutions</title>
+    <meta name="description" content="Professional website development in Gaborone, Botswana. Lalowebagency builds cloud-based websites, automation systems, and scalable business software for growing companies." />
+    <meta name="keywords" content="website development Gaborone, web design Gaborone, cloud websites Botswana, business automation Gaborone, software development Botswana, Gaborone web agency" />
+    <meta name="author" content="Lalowebagency" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://www.lalowebagency.com/Service-Locations/gaborone.html" />
+    <meta property="og:title" content="Website Development in Gaborone | Lalowebagency" />
+    <meta property="og:description" content="Cloud-based websites and automation systems for businesses in Gaborone, Botswana." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.lalowebagency.com/Service-Locations/gaborone.html" />
+    <meta property="og:image" content="https://www.lalowebagency.com/images/preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gaborone Website Development - Lalowebagency" />
+    <meta name="twitter:description" content="Custom cloud websites & automation systems for Gaborone businesses." />
+
+    <!-- Spinning canvas favicon -->
+    <link rel="icon" id="favicon" type="image/png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Lalowebagency - Gaborone",
+      "url": "https://www.lalowebagency.com/Service-Locations/gaborone.html",
+      "description": "Cloud-based website and automation software development services in Gaborone, Botswana.",
+      "areaServed": { "@type": "City", "name": "Gaborone" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Gaborone", "addressCountry": "Botswana" },
+      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "areaServed": "Gaborone" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink:       #0f0d0a;
+            --sand:      #f5f0e8;
+            --terra:     #c0522a;
+            --ochre:     #d4952a;
+            --ash:       #1a1814;
+            --ash2:      #252118;
+            --warm-mid:  #7a6a58;
+            --light-warm:#e8dfd0;
+            --white:     #fdfaf6;
+            --border:    rgba(192,82,42,0.18);
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+
+        body {
+            background: var(--white);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* ════════════════════════════
+           NAV
+        ════════════════════════════ */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 64px;
+            background: rgba(15,13,10,0.94);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+        .logo span { color: var(--terra); }
+
+        nav ul { list-style:none; display:flex; gap:36px; align-items:center; }
+
+        nav ul a {
+            text-decoration: none;
+            color: rgba(253,250,246,0.55);
+            font-size: 0.76rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color .2s;
+        }
+        nav ul a:hover { color: var(--ochre); }
+
+        .nav-cta {
+            padding: 10px 26px !important;
+            background: var(--terra) !important;
+            color: var(--white) !important;
+            border-radius: 2px;
+            font-weight: 500 !important;
+            transition: background .2s !important;
+        }
+        .nav-cta:hover { background: var(--ochre) !important; color: var(--ink) !important; }
+
+        /* ════════════════════════════
+           HERO
+        ════════════════════════════ */
+        #hero {
+            min-height: 100vh;
+            background: var(--ash);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        /* Diagonal stripe texture */
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                repeating-linear-gradient(55deg,
+                    rgba(192,82,42,0.045) 0px, rgba(192,82,42,0.045) 1px,
+                    transparent 1px, transparent 44px),
+                repeating-linear-gradient(-55deg,
+                    rgba(212,149,42,0.03) 0px, rgba(212,149,42,0.03) 1px,
+                    transparent 1px, transparent 44px);
+            pointer-events: none;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 110px 60px 120px 80px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--ochre);
+            margin-bottom: 28px;
+        }
+        .hero-tag::before { content:''; width:28px; height:1px; background:var(--ochre); }
+
+        #hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 5.5vw, 5.2rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+            margin-bottom: 26px;
+        }
+        #hero h1 em { font-style:italic; color:var(--terra); }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(253,250,246,0.55);
+            line-height: 1.8;
+            max-width: 440px;
+            margin-bottom: 48px;
+        }
+
+        .hero-actions { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 34px;
+            background: var(--terra);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .3s;
+        }
+        .btn-primary::after {
+            content:'';
+            position:absolute;
+            inset:0;
+            background:var(--ochre);
+            transform:translateX(-100%);
+            transition:transform .35s ease;
+        }
+        .btn-primary:hover::after { transform:translateX(0); }
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(212,149,42,0.25); }
+        .btn-primary span { position:relative; z-index:1; }
+
+        .btn-ghost {
+            font-size: 0.76rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(253,250,246,0.45);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color .2s;
+        }
+        .btn-ghost:hover { color:var(--ochre); }
+        .btn-ghost::after { content:'↓'; font-size:1rem; }
+
+        /* Right panel — animated code display */
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            padding: 60px 60px 120px 0;
+        }
+
+        .code-window {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(192,82,42,0.25);
+            border-radius: 8px;
+            width: 100%;
+            max-width: 460px;
+            overflow: hidden;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.4);
+        }
+
+        .code-titlebar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 18px;
+            background: rgba(255,255,255,0.04);
+            border-bottom: 1px solid rgba(192,82,42,0.15);
+        }
+
+        .dot { width:10px; height:10px; border-radius:50%; }
+        .dot-r { background:#ff5f57; }
+        .dot-y { background:#febc2e; }
+        .dot-g { background:#28c840; }
+
+        .code-filename {
+            margin-left: auto;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            color: rgba(253,250,246,0.3);
+        }
+
+        .code-body {
+            padding: 24px 28px;
+            font-family: 'DM Sans', monospace;
+            font-size: 0.8rem;
+            line-height: 2;
+        }
+
+        .code-line { display:block; white-space:nowrap; overflow:hidden; }
+        .c-grey  { color: rgba(253,250,246,0.25); }
+        .c-terra { color: var(--terra); }
+        .c-ochre { color: var(--ochre); }
+        .c-white { color: rgba(253,250,246,0.8); }
+        .c-green { color: #5fd96a; }
+        .c-blue  { color: #7ab4ff; }
+
+        /* Typing animation */
+        @keyframes type {
+            from { width:0; }
+            to   { width:100%; }
+        }
+
+        .type-1  { animation: type 0.4s steps(30) 0.3s both; }
+        .type-2  { animation: type 0.5s steps(35) 0.7s both; }
+        .type-3  { animation: type 0.4s steps(28) 1.1s both; }
+        .type-4  { animation: type 0.5s steps(32) 1.4s both; }
+        .type-5  { animation: type 0.4s steps(25) 1.8s both; }
+        .type-6  { animation: type 0.4s steps(30) 2.1s both; }
+        .type-7  { animation: type 0.5s steps(35) 2.4s both; }
+        .type-8  { animation: type 0.4s steps(22) 2.8s both; }
+        .type-9  { animation: type 0.4s steps(28) 3.1s both; }
+        .type-10 { animation: type 0.4s steps(20) 3.4s both; }
+        .type-11 { animation: type 0.3s steps(18) 3.7s both; }
+
+        /* Hero bottom stats */
+        .hero-stats {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            display: flex;
+            border-top: 1px solid rgba(192,82,42,0.15);
+            z-index: 5;
+        }
+
+        .stat-item {
+            flex: 1;
+            padding: 26px 40px;
+            border-right: 1px solid rgba(192,82,42,0.12);
+        }
+        .stat-item:last-child { border-right:none; }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--terra);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: rgba(253,250,246,0.35);
+        }
+
+        /* ════════════════════════════
+           SECTION COMMON
+        ════════════════════════════ */
+        .section-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--terra);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .section-tag::before { content:''; width:22px; height:1px; background:var(--terra); }
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 68px;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3.1rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        .section-title em { font-style:italic; color:var(--terra); }
+
+        .section-desc {
+            max-width: 300px;
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--warm-mid);
+            text-align: right;
+        }
+
+        /* ════════════════════════════
+           SERVICES
+        ════════════════════════════ */
+        #services {
+            background: var(--white);
+            padding: 120px 80px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--light-warm);
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 52px 46px;
+            position: relative;
+            overflow: hidden;
+            transition: background .3s;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 0;
+            background: var(--terra);
+            transition: height .4s ease;
+        }
+
+        .service-card:hover { background: #fdf8f3; }
+        .service-card:hover::before { height: 100%; }
+
+        .service-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--light-warm);
+            line-height: 1;
+            margin-bottom: 22px;
+            transition: color .3s;
+            user-select: none;
+        }
+        .service-card:hover .service-num { color: rgba(192,82,42,0.1); }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--warm-mid);
+        }
+
+        .service-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 22px;
+            font-size: 0.73rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--terra);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all .3s;
+        }
+        .service-card:hover .service-arrow { opacity:1; transform:translateX(0); }
+
+        /* ════════════════════════════
+           INDUSTRIES
+        ════════════════════════════ */
+        #solutions {
+            background: var(--ash);
+            padding: 120px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #solutions::after {
+            content: '';
+            position: absolute;
+            right: -120px; top: -120px;
+            width: 450px; height: 450px;
+            border-radius: 50%;
+            border: 70px solid rgba(192,82,42,0.06);
+            pointer-events: none;
+        }
+
+        #solutions .section-title { color: var(--white); }
+        #solutions .section-desc  { color: rgba(253,250,246,0.4); }
+        #solutions .section-tag   { color: var(--ochre); }
+        #solutions .section-tag::before { background: var(--ochre); }
+
+        .industries-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .industries-list li {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(192,82,42,0.1);
+            padding: 36px 32px;
+            font-size: 0.95rem;
+            color: rgba(253,250,246,0.7);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all .3s;
+            cursor: default;
+            line-height: 1.4;
+        }
+
+        .industries-list li::before {
+            content: '';
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--terra);
+            flex-shrink: 0;
+            transition: transform .3s;
+        }
+
+        .industries-list li:hover {
+            background: rgba(192,82,42,0.07);
+            border-color: rgba(192,82,42,0.32);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        .industries-list li:hover::before { transform: scale(1.8); }
+
+        /* ════════════════════════════
+           PROCESS
+        ════════════════════════════ */
+        #process {
+            padding: 120px 80px;
+            background: var(--sand);
+        }
+
+        .process-steps {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 0;
+            margin-top: 72px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 27px; left: 9%; right: 9%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, var(--terra), var(--ochre), var(--terra), transparent);
+        }
+
+        .process-steps li {
+            padding: 0 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0;
+        }
+
+        .step-num {
+            width: 54px; height: 54px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--terra);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--terra);
+            margin-bottom: 26px;
+            position: relative;
+            z-index: 2;
+            transition: all .3s;
+            flex-shrink: 0;
+        }
+
+        .process-steps li:hover .step-num {
+            background: var(--terra);
+            color: var(--white);
+            transform: scale(1.15);
+        }
+
+        .process-steps li strong {
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--ink);
+            line-height: 1.4;
+        }
+
+        .process-steps li p {
+            font-size: 0.76rem;
+            color: var(--warm-mid);
+            line-height: 1.65;
+        }
+
+        /* ════════════════════════════
+           WHY
+        ════════════════════════════ */
+        #why {
+            padding: 120px 80px;
+            background: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .why-visual {
+            position: relative;
+            height: 480px;
+        }
+
+        .why-block-dark {
+            position: absolute;
+            inset: 0 70px 70px 0;
+            background: var(--ash);
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-end;
+            padding: 36px;
+        }
+
+        .why-quote {
+            font-style: italic;
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: rgba(253,250,246,0.42);
+        }
+
+        .why-block-accent {
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 210px; height: 210px;
+            background: var(--terra);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+
+        .why-big-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .why-big-label {
+            font-size: 0.66rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: rgba(253,250,246,0.6);
+            margin-top: 8px;
+        }
+
+        .why-circle {
+            position: absolute;
+            top: -24px; left: -24px;
+            width: 150px; height: 150px;
+            border-radius: 50%;
+            background: var(--ochre);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .why-circle span {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+            line-height: 1.4;
+            padding: 16px;
+        }
+
+        .why-content .section-title { margin-top: 0; }
+
+        .why-content p {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--warm-mid);
+            margin-top: 22px;
+        }
+        .why-content p + p { margin-top: 14px; }
+
+        .why-content .btn-primary {
+            margin-top: 36px;
+            display: inline-block;
+        }
+
+        /* ════════════════════════════
+           CONTACT
+        ════════════════════════════ */
+        #contact {
+            background: var(--ink);
+            padding: 100px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact::before {
+            content: '';
+            position: absolute;
+            left: -200px; top: -200px;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(192,82,42,0.11) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .contact-left .section-title { color: var(--white); }
+        .contact-left .section-title em { color: var(--terra); }
+        .contact-left .section-tag { color: var(--ochre); }
+        .contact-left .section-tag::before { background: var(--ochre); }
+
+        .contact-left p {
+            color: rgba(253,250,246,0.48);
+            font-size: 0.95rem;
+            line-height: 1.82;
+            margin-top: 20px;
+        }
+
+        .contact-right {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(192,82,42,0.18);
+            padding: 52px 46px;
+            border-radius: 4px;
+        }
+
+        .contact-right .btn-primary {
+            display: block;
+            text-align: center;
+            font-size: 0.85rem;
+            padding: 20px;
+            margin-bottom: 14px;
+        }
+
+        .contact-email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 17px;
+            border: 1px solid rgba(192,82,42,0.22);
+            border-radius: 2px;
+            color: rgba(253,250,246,0.55);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            transition: all .25s;
+        }
+        .contact-email:hover { border-color:var(--ochre); color:var(--ochre); }
+
+        .contact-details {
+            margin-top: 30px;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .contact-detail label {
+            font-size: 0.62rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(253,250,246,0.28);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail span {
+            font-size: 0.83rem;
+            color: rgba(253,250,246,0.62);
+        }
+
+        /* ════════════════════════════
+           FOOTER
+        ════════════════════════════ */
+        footer {
+            background: var(--ash2);
+            padding: 38px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(192,82,42,0.12);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .footer-logo span { color: var(--terra); }
+
+        .footer-links {
+            display: flex;
+            gap: 28px;
+        }
+        .footer-links a {
+            text-decoration: none;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(253,250,246,0.35);
+            transition: color .2s;
+        }
+        .footer-links a:hover { color: var(--ochre); }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            color: rgba(253,250,246,0.22);
+            letter-spacing: 0.05em;
+        }
+
+        /* ════════════════════════════
+           SCROLL REVEAL
+        ════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(38px);
+            transition: opacity .75s ease, transform .75s ease;
+        }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+
+        /* ════════════════════════════
+           HERO ANIMATIONS
+        ════════════════════════════ */
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(28px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity:0; }
+            to   { opacity:1; }
+        }
+
+        .hero-tag    { animation: fadeUp .8s ease 0.15s both; }
+        #hero h1     { animation: fadeUp .9s ease 0.3s  both; }
+        .hero-desc   { animation: fadeUp .9s ease 0.45s both; }
+        .hero-actions{ animation: fadeUp .9s ease 0.6s  both; }
+        .hero-right  { animation: fadeIn 1.2s ease 0.5s both; }
+
+        .stat-item:nth-child(1){ animation: fadeUp .7s ease 0.7s  both; }
+        .stat-item:nth-child(2){ animation: fadeUp .7s ease 0.85s both; }
+        .stat-item:nth-child(3){ animation: fadeUp .7s ease 1.0s  both; }
+
+        /* ════════════════════════════
+           RESPONSIVE
+        ════════════════════════════ */
+        @media (max-width: 1080px) {
+            nav { padding: 20px 32px; }
+            #hero { grid-template-columns: 1fr; }
+            .hero-right { display:none; }
+            .hero-left { padding: 80px 36px; }
+            .services-grid { grid-template-columns:1fr; }
+            .industries-list { grid-template-columns:1fr 1fr; }
+            .process-steps { grid-template-columns:1fr 1fr 1fr; row-gap:48px; }
+            .process-steps::before { display:none; }
+            #why { grid-template-columns:1fr; }
+            .why-visual { display:none; }
+            #contact { grid-template-columns:1fr; }
+            footer { flex-direction:column; gap:18px; text-align:center; }
+            #services, #solutions, #process, #why, #contact { padding: 80px 36px; }
+            .section-header { flex-direction:column; }
+            .section-desc { text-align:left; max-width:100%; }
+        }
+
+        @media (max-width: 640px) {
+            nav ul { display:none; }
+            .hero-stats { flex-direction:column; }
+            .industries-list { grid-template-columns:1fr; }
+            .process-steps { grid-template-columns:1fr; }
+            .contact-details { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="https://www.lalowebagency.biz/" class="logo">Lalo<span>web</span>agency</a>
+    <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#solutions">Industries</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform" class="nav-cta" target="_blank" rel="noopener">Get Started</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+    <div class="hero-left">
+        <div class="hero-tag">Gaborone, Botswana</div>
+        <h1>Digital Growth<br>Starts in <em>Gaborone</em></h1>
+        <p class="hero-desc">We build high-performance cloud websites and automation systems for ambitious businesses in Gaborone and across Botswana.</p>
+        <div class="hero-actions">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+               class="btn-primary" target="_blank" rel="noopener">
+               <span>Request Free Consultation</span>
+            </a>
+            <a href="#services" class="btn-ghost">Explore services</a>
+        </div>
+    </div>
+
+    <!-- Animated code window -->
+    <div class="hero-right">
+        <div class="code-window">
+            <div class="code-titlebar">
+                <div class="dot dot-r"></div>
+                <div class="dot dot-y"></div>
+                <div class="dot dot-g"></div>
+                <span class="code-filename">gaborone.config.js</span>
+            </div>
+            <div class="code-body">
+                <span class="code-line c-grey  type-1">// Lalowebagency — Gaborone</span>
+                <span class="code-line c-white type-2"><span class="c-blue">const</span> <span class="c-ochre">client</span> = {</span>
+                <span class="code-line c-white type-3">&nbsp;&nbsp;city: <span class="c-green">"Gaborone"</span>,</span>
+                <span class="code-line c-white type-4">&nbsp;&nbsp;country: <span class="c-green">"Botswana"</span>,</span>
+                <span class="code-line c-white type-5">&nbsp;&nbsp;stack: <span class="c-green">"Cloud Native"</span>,</span>
+                <span class="code-line c-white type-6">&nbsp;&nbsp;seo: <span class="c-terra">true</span>,</span>
+                <span class="code-line c-white type-7">&nbsp;&nbsp;automation: <span class="c-terra">true</span>,</span>
+                <span class="code-line c-white type-8">};</span>
+                <span class="code-line c-grey  type-9">&nbsp;</span>
+                <span class="code-line c-white type-10"><span class="c-blue">deploy</span>(client).<span class="c-ochre">then</span>(() =&gt; {</span>
+                <span class="code-line c-green  type-11">&nbsp;&nbsp;✓ &nbsp;Digital growth started</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-stats">
+        <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Cloud-native builds</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">6+</div>
+            <div class="stat-label">Industries served</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Scalable infrastructure</div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">What we do</div>
+            <h2 class="section-title">Services Built for<br><em>Gaborone</em> Businesses</h2>
+        </div>
+        <p class="section-desc">Every solution is tailored to the Gaborone market — fast, reliable, and built to convert.</p>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card reveal">
+            <div class="service-num">01</div>
+            <h3>Professional Website Development</h3>
+            <p>Fast, mobile-optimized, and conversion-focused websites tailored for Gaborone businesses looking to grow online and attract customers digitally.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">02</div>
+            <h3>Business Automation Systems</h3>
+            <p>Streamline operations with automated workflows, CRM integrations, booking systems, and cloud-based tools designed to save time and reduce cost.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">03</div>
+            <h3>E-commerce & Online Stores</h3>
+            <p>Sell products and services online with secure payment integration and scalable infrastructure built for long-term growth in the Botswana market.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">04</div>
+            <h3>Custom Software & API Integrations</h3>
+            <p>Secure backend systems, API development, and cloud-native solutions for enterprises in Gaborone that need advanced, bespoke digital infrastructure.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+    </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="solutions">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">Industries</div>
+            <h2 class="section-title">We Serve Gaborone's<br><em>Key Sectors</em></h2>
+        </div>
+        <p class="section-desc">From financial services to construction — we understand Botswana's capital market.</p>
+    </div>
+
+    <ul class="industries-list">
+        <li class="reveal">Construction &amp; Engineering Firms</li>
+        <li class="reveal">Financial &amp; Consulting Services</li>
+        <li class="reveal">Retail &amp; E-commerce Businesses</li>
+        <li class="reveal">Real Estate Agencies</li>
+        <li class="reveal">Startups &amp; SMEs</li>
+        <li class="reveal">Corporate Enterprises</li>
+    </ul>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">How it works</div>
+            <h2 class="section-title">Our <em>5-Step</em><br>Development Process</h2>
+        </div>
+        <p class="section-desc">A proven methodology from strategy to launch and beyond.</p>
+    </div>
+
+    <ol class="process-steps">
+        <li class="reveal">
+            <div class="step-num">1</div>
+            <strong>Strategy Consultation</strong>
+            <p>Define business goals and market positioning in Gaborone.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">2</div>
+            <strong>Cloud Architecture Planning</strong>
+            <p>Secure and scalable infrastructure design from the ground up.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">3</div>
+            <strong>Website &amp; Software Development</strong>
+            <p>Performance-focused, SEO-optimized implementation.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">4</div>
+            <strong>Launch &amp; Optimization</strong>
+            <p>Speed testing, SEO tuning, and quality assurance at launch.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">5</div>
+            <strong>Growth &amp; Automation</strong>
+            <p>Continuous scaling and workflow automation as you grow.</p>
+        </li>
+    </ol>
+</section>
+
+<!-- WHY -->
+<section id="why">
+    <div class="why-visual reveal">
+        <div class="why-block-dark">
+            <p class="why-quote">"Gaborone is Botswana's central business district — businesses here need professional digital infrastructure to compete effectively in the modern economy."</p>
+        </div>
+        <div class="why-block-accent">
+            <div class="why-big-num">5★</div>
+            <div class="why-big-label">Client Satisfaction</div>
+        </div>
+        <div class="why-circle">
+            <span>Cloud<br>First</span>
+        </div>
+    </div>
+
+    <div class="why-content reveal">
+        <div class="section-tag">Why choose us</div>
+        <h2 class="section-title">Why Gaborone Businesses<br>Choose <em>Lalowebagency</em></h2>
+        <p>Gaborone is Botswana's central business district and digital growth hub. Businesses here require professional digital infrastructure to compete effectively. Lalowebagency builds cloud-native websites that are secure, scalable, and conversion-focused.</p>
+        <p>Our automation-driven approach reduces manual processes, improves operational efficiency, and enables businesses in Gaborone to scale without unnecessary overhead — giving you the competitive edge you need.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+           class="btn-primary" target="_blank" rel="noopener">
+           <span>Start Your Project →</span>
+        </a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="contact-left reveal">
+        <div class="section-tag">Get in touch</div>
+        <h2 class="section-title">Start Your Digital<br>Growth in <em>Gaborone</em></h2>
+        <p>Book a free consultation and discover how a professional website and automation system can transform your Gaborone business into a digital-first operation.</p>
+    </div>
+
+    <div class="contact-right reveal">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+           class="btn-primary" target="_blank" rel="noopener">
+           <span>Request Free Consultation</span>
+        </a>
+        
+        <div class="contact-details">
+            <div class="contact-detail">
+                <label>Location</label>
+                <span>Gaborone, Botswana</span>
+            </div>
+            <div class="contact-detail">
+                <label>Response time</label>
+                <span>Within 24 hours</span>
+            </div>
+            <div class="contact-detail">
+                <label>Consultation</label>
+                <span>Free &amp; no-obligation</span>
+            </div>
+            <div class="contact-detail">
+                <label>Website</label>
+                <span>lalowebagency.biz</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <a href="https://www.lalowebagency.biz/" class="footer-logo">Lalo<span>web</span>agency</a>
+    <div class="footer-links">
+        <a href="https://www.lalowebagency.biz/">Main Site</a>
+        <a href="https://www.lalowebagency.biz/">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Lalo Web Agency</div>
+</footer>
+
+<script>
+/* ── Spinning code favicon ── */
+(function() {
+    const fc = document.createElement('canvas');
+    fc.width = fc.height = 64;
+    const fx = fc.getContext('2d');
+    let angle = 0;
+
+    function drawFavicon() {
+        fx.clearRect(0, 0, 64, 64);
+
+        // Background circle
+        fx.beginPath();
+        fx.arc(32, 32, 30, 0, Math.PI * 2);
+        fx.fillStyle = '#1a1814';
+        fx.fill();
+
+        // Save & rotate for the code symbol
+        fx.save();
+        fx.translate(32, 32);
+        fx.rotate(angle);
+
+        // Draw <> brackets
+        fx.font = 'bold 22px monospace';
+        fx.textAlign = 'center';
+        fx.textBaseline = 'middle';
+
+        // Left bracket
+        fx.fillStyle = '#c0522a';
+        fx.fillText('<', -10, 0);
+
+        // Right bracket
+        fx.fillStyle = '#d4952a';
+        fx.fillText('>', 10, 0);
+
+        fx.restore();
+
+        // Outer ring
+        fx.beginPath();
+        fx.arc(32, 32, 30, 0, Math.PI * 2);
+        fx.strokeStyle = 'rgba(192,82,42,0.6)';
+        fx.lineWidth = 2;
+        fx.stroke();
+
+        // Update favicon
+        const link = document.getElementById('favicon');
+        link.href = fc.toDataURL('image/png');
+
+        angle += 0.04;
+        requestAnimationFrame(drawFavicon);
+    }
+
+    drawFavicon();
+})();
+
+/* ── Scroll reveal ── */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 90);
+            io.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

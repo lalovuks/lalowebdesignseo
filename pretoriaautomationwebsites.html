@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Development in Pretoria | Lalo Web Agency South Africa</title>
+    <meta name="description" content="Professional website development services in Pretoria. Lalo Web Agency builds business websites, automation systems, and scalable digital platforms for companies in Pretoria, South Africa." />
+    <meta name="keywords" content="web design Pretoria, website development Pretoria, business websites South Africa, Pretoria web agency, automation systems SA" />
+    <meta name="author" content="Lalo Web Agency" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://lalowebagency.biz/pretoria.html" />
+    <meta property="og:title" content="Website Development in Pretoria | Lalo Web Agency" />
+    <meta property="og:description" content="Professional business website development and automation solutions for companies in Pretoria, South Africa." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lalowebagency.biz/pretoria.html" />
+    <meta property="og:image" content="https://lalowebagency.biz/images/preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pretoria Website Development - Lalo Web Agency" />
+    <meta name="twitter:description" content="Custom business websites and automation systems for Pretoria companies." />
+
+    <link rel="icon" id="favicon" type="image/png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Lalo Web Agency - Pretoria",
+      "url": "https://lalowebagency.biz/pretoria.html",
+      "description": "Professional website development and automation services in Pretoria, South Africa.",
+      "areaServed": { "@type": "City", "name": "Pretoria" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Pretoria", "addressCountry": "South Africa" },
+      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "areaServed": "Pretoria" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --plum:       #2d1b4e;
+            --plum-deep:  #1a0f2e;
+            --jac:        #7b4fa6;   /* jacaranda purple */
+            --jac-lt:     #b07fd4;
+            --jac-pale:   #ede4f7;
+            --gold:       #c89b3c;
+            --gold-lt:    #e0b84a;
+            --cream:      #faf7f2;
+            --warm-grey:  #928070;
+            --ink:        #130c1e;
+            --border:     rgba(123,79,166,0.18);
+            --white:      #fefcff;
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+
+        body {
+            background: var(--cream);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* ════════ NAV ════════ */
+        nav {
+            position: fixed;
+            top:0; left:0; right:0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 64px;
+            background: rgba(26,15,46,0.96);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(123,79,166,0.22);
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .logo span { color: var(--jac-lt); }
+
+        nav ul { list-style:none; display:flex; gap:36px; align-items:center; }
+
+        nav ul a {
+            text-decoration: none;
+            color: rgba(254,252,255,0.48);
+            font-size: 0.75rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color .2s;
+        }
+        nav ul a:hover { color: var(--jac-lt); }
+
+        .nav-cta {
+            padding: 10px 26px !important;
+            background: var(--jac) !important;
+            color: var(--white) !important;
+            border-radius: 2px;
+            font-weight: 500 !important;
+            transition: background .2s !important;
+        }
+        .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+        /* ════════ HERO ════════ */
+        #hero {
+            min-height: 100vh;
+            background: var(--plum-deep);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        /* Jacaranda petal scatter background */
+        .petals-canvas {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Union Buildings silhouette */
+        .union-svg {
+            position: absolute;
+            bottom: 56px;
+            left: 0; right: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.065;
+        }
+
+        /* Diagonal light ray */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -100px;
+            width: 500px; height: 900px;
+            background: linear-gradient(160deg, rgba(123,79,166,0.1) 0%, transparent 60%);
+            transform: rotate(-20deg);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        #hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px; left: 30%;
+            width: 700px; height: 350px;
+            border-radius: 50%;
+            background: radial-gradient(ellipse, rgba(200,155,60,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 110px 60px 140px 80px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+        .hero-tag::before { content:''; width:28px; height:1px; background:var(--gold); }
+
+        #hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(4rem, 7.5vw, 8rem);
+            font-weight: 400;
+            color: var(--white);
+            line-height: 0.92;
+            letter-spacing: 0.03em;
+            margin-bottom: 28px;
+        }
+        #hero h1 em {
+            font-style: normal;
+            color: var(--jac-lt);
+            display: block;
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(254,252,255,0.5);
+            line-height: 1.82;
+            max-width: 440px;
+            margin-bottom: 48px;
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+
+        .hero-actions { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 34px;
+            background: var(--jac);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .3s;
+        }
+        .btn-primary::after {
+            content:'';
+            position:absolute;
+            inset:0;
+            background: var(--gold);
+            transform: translateX(-100%);
+            transition: transform .35s ease;
+        }
+        .btn-primary:hover::after { transform:translateX(0); }
+        .btn-primary:hover { box-shadow: 0 0 28px rgba(200,155,60,0.3); }
+        .btn-primary span { position:relative; z-index:1; color: var(--ink); }
+
+        .btn-ghost {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(254,252,255,0.38);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color .2s;
+        }
+        .btn-ghost:hover { color: var(--jac-lt); }
+        .btn-ghost::after { content:'↓'; font-size:1rem; }
+
+        /* ── Hero right: Administrative panel ── */
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+            padding: 60px 80px 140px 20px;
+        }
+
+        .pta-panel {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .pta-header {
+            background: rgba(123,79,166,0.12);
+            border: 1px solid rgba(123,79,166,0.3);
+            border-radius: 6px 6px 0 0;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .pta-header-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--jac-lt);
+        }
+
+        .pta-status {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            color: rgba(254,252,255,0.4);
+        }
+
+        .status-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: #5fd96a;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%,100% { opacity:1; transform:scale(1); }
+            50%      { opacity:0.5; transform:scale(0.7); }
+        }
+
+        .pta-main {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(123,79,166,0.2);
+            border-top: none;
+            border-radius: 0 0 6px 6px;
+            padding: 32px;
+            backdrop-filter: blur(8px);
+        }
+
+        .pta-city {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.6rem;
+            letter-spacing: 0.05em;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .pta-sub {
+            font-size: 0.73rem;
+            letter-spacing: 0.14em;
+            color: var(--jac-lt);
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        /* Jacaranda petal row */
+        .petal-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 28px;
+        }
+
+        .petal {
+            width: 12px; height: 18px;
+            background: var(--jac);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            opacity: 0.6;
+            transform-origin: bottom center;
+            animation: sway 3s ease-in-out infinite;
+        }
+
+        .petal:nth-child(2) { animation-delay:.3s; opacity:0.8; background:var(--jac-lt); }
+        .petal:nth-child(3) { animation-delay:.6s; }
+        .petal:nth-child(4) { animation-delay:.9s; opacity:0.7; background:var(--jac-lt); }
+        .petal:nth-child(5) { animation-delay:.4s; }
+        .petal:nth-child(6) { animation-delay:.7s; opacity:0.9; background:var(--gold); }
+        .petal:nth-child(7) { animation-delay:.2s; }
+        .petal:nth-child(8) { animation-delay:.5s; opacity:0.8; }
+
+        @keyframes sway {
+            0%,100% { transform:rotate(-8deg); }
+            50%      { transform:rotate(8deg); }
+        }
+
+        .pta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: rgba(123,79,166,0.1);
+        }
+
+        .pta-cell {
+            background: rgba(26,15,46,0.6);
+            padding: 16px 18px;
+        }
+
+        .pta-cell-val {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.7rem;
+            letter-spacing: 0.05em;
+            color: var(--gold-lt);
+            line-height: 1;
+            margin-bottom: 3px;
+        }
+
+        .pta-cell-label {
+            font-size: 0.62rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(254,252,255,0.3);
+        }
+
+        /* Floating tag */
+        .pta-tag {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%);
+            border-radius: 3px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pta-tag-icon { font-size: 1.3rem; }
+
+        .pta-tag-text {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--ink);
+            line-height: 1.4;
+        }
+
+        /* Stats bar */
+        .hero-stats {
+            position: absolute;
+            bottom:0; left:0; right:0;
+            display: flex;
+            border-top: 1px solid rgba(123,79,166,0.15);
+            z-index: 5;
+        }
+
+        .stat-item {
+            flex:1;
+            padding: 26px 40px;
+            border-right: 1px solid rgba(123,79,166,0.1);
+        }
+        .stat-item:last-child { border-right:none; }
+
+        .stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.4rem;
+            letter-spacing: 0.05em;
+            color: var(--jac-lt);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.67rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: rgba(254,252,255,0.3);
+        }
+
+        /* ════════ SHARED SECTION STYLES ════════ */
+        .section-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--jac);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .section-tag::before { content:''; width:22px; height:1px; background:var(--jac); }
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 68px;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.4rem, 4.5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.0;
+            letter-spacing: 0.04em;
+        }
+        .section-title em { font-style:normal; color:var(--jac); }
+
+        .section-desc {
+            max-width: 300px;
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--warm-grey);
+            text-align: right;
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+
+        /* ════════ SERVICES ════════ */
+        #services { background:var(--white); padding:120px 80px; }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--jac-pale);
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 52px 46px;
+            position: relative;
+            overflow: hidden;
+            transition: background .3s;
+        }
+
+        .service-card::before {
+            content:'';
+            position:absolute;
+            top:0; left:0;
+            width:3px; height:0;
+            background: linear-gradient(to bottom, var(--jac), var(--gold));
+            transition: height .4s ease;
+        }
+
+        /* Petal watermark */
+        .service-card::after {
+            content: '❋';
+            position:absolute;
+            bottom: 20px; right: 24px;
+            font-size: 4rem;
+            color: var(--jac-pale);
+            line-height: 1;
+            transition: color .3s;
+            pointer-events: none;
+        }
+
+        .service-card:hover { background: #fdf8ff; }
+        .service-card:hover::before { height:100%; }
+        .service-card:hover::after { color: rgba(123,79,166,0.1); }
+
+        .service-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.8rem;
+            letter-spacing: 0.05em;
+            color: var(--jac-pale);
+            line-height: 1;
+            margin-bottom: 20px;
+            transition: color .3s;
+        }
+        .service-card:hover .service-num { color: rgba(123,79,166,0.1); }
+
+        .service-card h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            font-size: 0.92rem;
+            line-height: 1.82;
+            color: var(--warm-grey);
+        }
+
+        .service-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 22px;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--jac);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all .3s;
+        }
+        .service-card:hover .service-arrow { opacity:1; transform:translateX(0); }
+
+        /* ════════ ARTICLE / WHY ════════ */
+        #article {
+            background: var(--plum);
+            padding: 120px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: start;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #article::before {
+            content:'';
+            position:absolute;
+            top:-100px; right:-100px;
+            width:450px; height:450px;
+            border-radius:50%;
+            border: 70px solid rgba(200,155,60,0.06);
+            pointer-events:none;
+        }
+
+        .article-left h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.2rem, 4vw, 3.8rem);
+            letter-spacing: 0.04em;
+            color: var(--white);
+            line-height: 1.0;
+            margin-bottom: 28px;
+        }
+        .article-left h2 em { font-style:normal; color:var(--jac-lt); }
+
+        .article-left p {
+            font-family: 'Lora', serif;
+            font-size: 0.95rem;
+            line-height: 1.88;
+            color: rgba(254,252,255,0.5);
+            margin-bottom: 18px;
+        }
+
+        .article-left .btn-primary { margin-top: 24px; }
+
+        .article-right h3 {
+            font-family: 'Lora', serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 16px;
+            margin-top: 40px;
+            line-height: 1.2;
+        }
+        .article-right h3:first-child { margin-top:0; }
+
+        .article-right p {
+            font-size: 0.92rem;
+            line-height: 1.82;
+            color: rgba(254,252,255,0.5);
+            margin-bottom: 16px;
+            font-family: 'Lora', serif;
+        }
+
+        .why-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .why-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.9rem;
+            color: rgba(254,252,255,0.68);
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(123,79,166,0.14);
+            border-radius: 3px;
+            transition: all .25s;
+        }
+
+        .why-list li::before {
+            content: '❋';
+            color: var(--jac-lt);
+            font-size: 0.7rem;
+            flex-shrink:0;
+        }
+
+        .why-list li:hover {
+            background: rgba(123,79,166,0.1);
+            border-color: rgba(123,79,166,0.35);
+            color: var(--white);
+            transform: translateX(4px);
+        }
+
+        /* ════════ PROCESS ════════ */
+        #process { padding:120px 80px; background:var(--jac-pale); }
+
+        .process-steps {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            margin-top: 72px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content:'';
+            position:absolute;
+            top:27px; left:9%; right:9%;
+            height:1px;
+            background: linear-gradient(to right, transparent, var(--jac), var(--gold), var(--jac), transparent);
+        }
+
+        .process-steps li {
+            padding: 0 12px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .step-num {
+            width:54px; height:54px;
+            border-radius:50%;
+            background: var(--white);
+            border: 2px solid var(--jac);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.05em;
+            color: var(--jac);
+            margin-bottom: 26px;
+            position: relative;
+            z-index: 2;
+            transition: all .3s;
+        }
+
+        .process-steps li:hover .step-num {
+            background: var(--jac);
+            color: var(--white);
+            transform: scale(1.15);
+        }
+
+        .process-steps li strong {
+            font-size: 0.84rem;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--ink);
+            line-height: 1.4;
+        }
+
+        .process-steps li p {
+            font-size: 0.75rem;
+            color: var(--warm-grey);
+            line-height: 1.65;
+        }
+
+        /* ════════ INDUSTRIES ════════ */
+        #solutions {
+            background: var(--plum-deep);
+            padding: 120px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #solutions::after {
+            content:'';
+            position:absolute;
+            left:-80px; bottom:-80px;
+            width:500px; height:500px;
+            border-radius:50%;
+            background: radial-gradient(circle, rgba(123,79,166,0.12) 0%, transparent 65%);
+            pointer-events:none;
+        }
+
+        #solutions .section-title { color:var(--white); }
+        #solutions .section-desc  { color:rgba(254,252,255,0.36); }
+        #solutions .section-tag   { color:var(--gold); }
+        #solutions .section-tag::before { background:var(--gold); }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background: rgba(123,79,166,0.08);
+        }
+
+        .industry-card {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(123,79,166,0.1);
+            padding: 36px 32px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            transition: all .3s;
+            cursor: default;
+        }
+
+        .ind-icon { font-size:1.6rem; line-height:1; flex-shrink:0; }
+
+        .ind-text {
+            font-size: 0.93rem;
+            color: rgba(254,252,255,0.62);
+            line-height: 1.5;
+            padding-top: 4px;
+        }
+
+        .industry-card:hover {
+            background: rgba(123,79,166,0.1);
+            border-color: rgba(123,79,166,0.32);
+            transform: translateY(-3px);
+        }
+        .industry-card:hover .ind-text { color:var(--white); }
+
+        /* ════════ CONTACT ════════ */
+        #contact {
+            background: var(--ink);
+            padding: 100px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact::before {
+            content:'';
+            position:absolute;
+            left:-200px; top:-200px;
+            width:600px; height:600px;
+            border-radius:50%;
+            background: radial-gradient(circle, rgba(123,79,166,0.1) 0%, transparent 70%);
+            pointer-events:none;
+        }
+
+        .contact-left .section-title { color:var(--white); }
+        .contact-left .section-tag   { color:var(--gold); }
+        .contact-left .section-tag::before { background:var(--gold); }
+
+        .contact-left p {
+            color: rgba(254,252,255,0.44);
+            font-size: 0.95rem;
+            line-height: 1.85;
+            margin-top: 20px;
+            font-family: 'Lora', serif;
+            font-style: italic;
+        }
+
+        .contact-right {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(123,79,166,0.2);
+            padding: 52px 46px;
+            border-radius: 4px;
+            position:relative; z-index:2;
+        }
+
+        .contact-right .btn-primary {
+            display:block;
+            text-align:center;
+            padding:20px;
+            margin-bottom:14px;
+        }
+
+        .contact-email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 17px;
+            border: 1px solid rgba(123,79,166,0.22);
+            border-radius: 2px;
+            color: rgba(254,252,255,0.48);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            transition: all .25s;
+        }
+        .contact-email:hover { border-color:var(--gold); color:var(--gold); }
+
+        .contact-details {
+            margin-top: 28px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .contact-detail label {
+            font-size: 0.62rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(254,252,255,0.24);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail span {
+            font-size: 0.82rem;
+            color: rgba(254,252,255,0.58);
+        }
+
+        /* ════════ FOOTER ════════ */
+        footer {
+            background: var(--plum-deep);
+            padding: 36px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(123,79,166,0.14);
+        }
+
+        .footer-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.3rem;
+            letter-spacing: 0.08em;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .footer-logo span { color:var(--jac-lt); }
+
+        .footer-links { display:flex; gap:28px; }
+        .footer-links a {
+            text-decoration:none;
+            font-size:0.72rem;
+            letter-spacing:0.1em;
+            text-transform:uppercase;
+            color: rgba(254,252,255,0.3);
+            transition: color .2s;
+        }
+        .footer-links a:hover { color:var(--gold); }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            color: rgba(254,252,255,0.2);
+        }
+
+        /* ════════ REVEAL ════════ */
+        .reveal {
+            opacity:0;
+            transform:translateY(36px);
+            transition: opacity .72s ease, transform .72s ease;
+        }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+
+        /* ════════ HERO ANIMS ════════ */
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(28px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity:0; }
+            to   { opacity:1; }
+        }
+
+        .hero-tag     { animation: fadeUp .8s ease .15s both; }
+        #hero h1      { animation: fadeUp .9s ease .30s both; }
+        .hero-desc    { animation: fadeUp .9s ease .45s both; }
+        .hero-actions { animation: fadeUp .9s ease .60s both; }
+        .hero-right   { animation: fadeIn 1.1s ease  .5s both; }
+        .stat-item:nth-child(1){ animation: fadeUp .7s ease .70s both; }
+        .stat-item:nth-child(2){ animation: fadeUp .7s ease .85s both; }
+        .stat-item:nth-child(3){ animation: fadeUp .7s ease 1.0s both; }
+
+        /* ════════ RESPONSIVE ════════ */
+        @media (max-width:1080px) {
+            nav { padding:20px 32px; }
+            #hero { grid-template-columns:1fr; }
+            .hero-right { display:none; }
+            .hero-left { padding:80px 36px; }
+            .services-grid { grid-template-columns:1fr; }
+            #article { grid-template-columns:1fr; gap:48px; }
+            .industries-grid { grid-template-columns:1fr 1fr; }
+            .process-steps { grid-template-columns:1fr 1fr 1fr; row-gap:48px; }
+            .process-steps::before { display:none; }
+            #contact { grid-template-columns:1fr; }
+            footer { flex-direction:column; gap:16px; text-align:center; }
+            #services,#article,#process,#solutions,#contact { padding:80px 36px; }
+            .section-header { flex-direction:column; }
+            .section-desc { text-align:left; max-width:100%; }
+        }
+        @media (max-width:640px) {
+            nav ul { display:none; }
+            .hero-stats { flex-direction:column; }
+            .industries-grid { grid-template-columns:1fr; }
+            .process-steps { grid-template-columns:1fr; }
+            .contact-details { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="https://www.lalowebagency.biz/" class="logo">Lalo<span>web</span>agency</a>
+    <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#solutions">Industries</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform" class="nav-cta" target="_blank" rel="noopener">Get Started</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+
+    <!-- Union Buildings silhouette -->
+    <svg class="union-svg" viewBox="0 0 1440 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+        <path fill="white" d="
+            M0,220 L0,160 L40,160 L40,140 L60,140 L60,120 L80,120 L80,100 L100,100 L100,80
+            L115,80 L115,70 L120,70 L120,65 L130,65 L130,60 L140,60 L140,65 L150,65 L150,70
+            L155,70 L155,80 L170,80 L170,90 L190,90 L190,80 L200,80 L200,60 L205,60 L205,50
+            L210,50 L210,45 L215,45 L215,40 L225,40 L225,45 L230,45 L230,50 L235,50 L235,60
+            L240,60 L240,80 L250,80 L250,90 L270,90 L270,80 L280,80 L280,60 L285,60 L285,50
+            L290,50 L290,45 L295,45 L295,40 L305,40 L305,45 L310,45 L310,50 L315,50 L315,60
+            L320,60 L320,80 L330,80 L330,90 L350,90 L350,100 L370,100 L370,80 L380,80
+            L380,90 L400,90 L400,100 L420,100 L420,95 L440,95 L440,100 L460,100 L460,90
+            L480,90 L480,80 L500,80 L500,70 L520,70 L520,80 L540,80 L540,90 L560,90
+            L560,80 L570,80 L570,70 L580,70 L580,80 L600,80 L600,90 L620,90 L620,100
+            L640,100 L640,95 L660,95 L660,100 L680,100 L680,90 L700,90 L700,80 L720,80
+            L720,70 L740,70 L740,80 L760,80 L760,90 L780,90 L780,100 L800,100 L800,110
+            L820,110 L820,120 L840,120 L840,130 L860,130 L860,140 L900,140 L900,150
+            L940,150 L940,155 L980,155 L980,160 L1020,160 L1020,165 L1060,165 L1060,170
+            L1100,170 L1140,170 L1180,170 L1220,172 L1260,174 L1300,175 L1340,176
+            L1380,177 L1440,178 L1440,220 Z
+        "/>
+    </svg>
+
+    <div class="hero-left">
+        <div class="hero-tag">Pretoria, South Africa</div>
+        <h1>The Jacaranda<br>City Goes <em>Digital</em></h1>
+        <p class="hero-desc">Modern business websites and automation solutions built for companies in South Africa's administrative capital — where tradition meets technology.</p>
+        <div class="hero-actions">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+               class="btn-primary" target="_blank" rel="noopener">
+               <span>Request Free Consultation</span>
+            </a>
+            <a href="#services" class="btn-ghost">Explore services</a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <div class="pta-panel">
+            <div class="pta-header">
+                <span class="pta-header-label">Service Location — Pretoria</span>
+                <span class="pta-status"><span class="status-dot"></span>Active</span>
+            </div>
+            <div class="pta-main">
+                <div class="pta-city">PRETORIA</div>
+                <div class="pta-sub">South Africa · Administrative Capital</div>
+                <div class="petal-row">
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                    <div class="petal"></div>
+                </div>
+                <div class="pta-grid">
+                    <div class="pta-cell">
+                        <div class="pta-cell-val">100%</div>
+                        <div class="pta-cell-label">Cloud Native</div>
+                    </div>
+                    <div class="pta-cell">
+                        <div class="pta-cell-val">SEO</div>
+                        <div class="pta-cell-label">Optimized</div>
+                    </div>
+                    <div class="pta-cell">
+                        <div class="pta-cell-val">5+</div>
+                        <div class="pta-cell-label">Industries</div>
+                    </div>
+                    <div class="pta-cell">
+                        <div class="pta-cell-val">24h</div>
+                        <div class="pta-cell-label">Response Time</div>
+                    </div>
+                </div>
+            </div>
+            <div class="pta-tag">
+                <span class="pta-tag-icon">🌸</span>
+                <span class="pta-tag-text">Pretoria's Digital<br>Growth Partner</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-stats">
+        <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Cloud-native builds</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Industries served</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Scalable infrastructure</div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">What we do</div>
+            <h2 class="section-title">Professional Services<br>for <em>Pretoria</em></h2>
+        </div>
+        <p class="section-desc">Every solution tailored to Pretoria's unique market — secure, scalable, and built to convert.</p>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card reveal">
+            <div class="service-num">01</div>
+            <h3>Professional Website Development</h3>
+            <p>Modern, mobile-optimized websites built for Pretoria businesses to improve customer engagement, online visibility, and lead generation across South Africa.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">02</div>
+            <h3>Business Automation Solutions</h3>
+            <p>Intelligent platforms that integrate customer databases, booking engines, payment gateways, and secure API layers to reduce manual administration.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">03</div>
+            <h3>E-Commerce & Online Stores</h3>
+            <p>Powerful online storefronts with secure payment integration and scalable cloud infrastructure designed for Pretoria's growing retail and services market.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">04</div>
+            <h3>Custom Software & API Integration</h3>
+            <p>Cybersecurity-first backend systems with input validation, rate limiting, and encrypted communication layers to protect your Pretoria business data.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+    </div>
+</section>
+
+<!-- ARTICLE / WHY -->
+<section id="article">
+    <div class="article-left reveal">
+        <h2>Professional Web Development in <em>Pretoria</em></h2>
+        <p>Companies in Pretoria need high-quality digital platforms to remain competitive in South Africa's growing online business ecosystem. We design professional websites that help organizations improve customer engagement and online visibility.</p>
+        <p>Our development approach focuses on performance optimization, secure architecture, and scalable cloud deployment — building systems that support business growth, automation workflows, and modern customer interaction.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+           class="btn-primary" target="_blank" rel="noopener">
+           <span>Start Your Project →</span>
+        </a>
+    </div>
+
+    <div class="article-right reveal">
+        <h3>Why Pretoria Businesses Need Professional Websites</h3>
+        <ul class="why-list">
+            <li>Increase search engine visibility and local market reach</li>
+            <li>Generate more customer leads and business inquiries</li>
+            <li>Improve professional brand perception and trust</li>
+            <li>Support mobile and international users seamlessly</li>
+            <li>Enable intelligent workflow automation</li>
+        </ul>
+
+        <h3>Business Automation Solutions</h3>
+        <p>We develop intelligent automation platforms that help Pretoria businesses reduce manual administration — integrating customer databases, booking engines, payment gateways, and secure API communication layers into one unified, cybersecurity-first system.</p>
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">How it works</div>
+            <h2 class="section-title">Our <em>5-Step</em><br>Development Process</h2>
+        </div>
+        <p class="section-desc">A proven path from strategy to launch and long-term growth.</p>
+    </div>
+
+    <ol class="process-steps">
+        <li class="reveal">
+            <div class="step-num">1</div>
+            <strong>Strategy & Planning</strong>
+            <p>Understanding your Pretoria market and defining clear digital goals.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">2</div>
+            <strong>Architecture Design</strong>
+            <p>Secure, scalable cloud-first infrastructure designed to grow with you.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">3</div>
+            <strong>Development</strong>
+            <p>Performance optimization, clean code, and full SEO integration.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">4</div>
+            <strong>Deployment</strong>
+            <p>Fast hosting, search engine indexing, and thorough QA testing.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">5</div>
+            <strong>Growth & Automation</strong>
+            <p>Continuous scaling, automation upgrades, and performance monitoring.</p>
+        </li>
+    </ol>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="solutions">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">Industries</div>
+            <h2 class="section-title">Serving Pretoria's<br><em>Key Sectors</em></h2>
+        </div>
+        <p class="section-desc">From government suppliers to hospitality — we know what Pretoria businesses need.</p>
+    </div>
+
+    <div class="industries-grid">
+        <div class="industry-card reveal">
+            <span class="ind-icon">🏛️</span>
+            <span class="ind-text">Government Suppliers &amp; Contractors</span>
+        </div>
+        <div class="industry-card reveal">
+            <span class="ind-icon">🏗️</span>
+            <span class="ind-text">Construction &amp; Engineering Firms</span>
+        </div>
+        <div class="industry-card reveal">
+            <span class="ind-icon">🏠</span>
+            <span class="ind-text">Real Estate &amp; Property Agencies</span>
+        </div>
+        <div class="industry-card reveal">
+            <span class="ind-icon">💼</span>
+            <span class="ind-text">Professional Service Providers</span>
+        </div>
+        <div class="industry-card reveal">
+            <span class="ind-icon">🚀</span>
+            <span class="ind-text">Startups &amp; Growing Enterprises</span>
+        </div>
+        <div class="industry-card reveal">
+            <span class="ind-icon">🎓</span>
+            <span class="ind-text">Education &amp; Training Institutions</span>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="contact-left reveal">
+        <div class="section-tag">Get in touch</div>
+        <h2 class="section-title">Grow Your<br><em>Pretoria</em> Business</h2>
+        <p>Discover how professional website development and smart automation can help your company scale in Pretoria and across South Africa's digital economy.</p>
+    </div>
+
+    <div class="contact-right reveal">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+           class="btn-primary" target="_blank" rel="noopener">
+           <span>Request Free Consultation</span>
+        </a>
+        
+        <div class="contact-details">
+            <div class="contact-detail">
+                <label>Location</label>
+                <span>Pretoria, SA</span>
+            </div>
+            <div class="contact-detail">
+                <label>Response time</label>
+                <span>Within 24 hours</span>
+            </div>
+            <div class="contact-detail">
+                <label>Consultation</label>
+                <span>Free &amp; no-obligation</span>
+            </div>
+            <div class="contact-detail">
+                <label>Website</label>
+                <span>lalowebagency.biz</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <a href="https://www.lalowebagency.biz/" class="footer-logo">Lalo<span>web</span>agency</a>
+    <div class="footer-links">
+        <a href="https://lalowebagency.biz">Main Site</a>
+        <a href="https://lalowebagency.biz">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Lalo Web Agency</div>
+</footer>
+
+<script>
+/* ── Spinning favicon — jacaranda purple & gold ── */
+(function () {
+    const fc = document.createElement('canvas');
+    fc.width = fc.height = 64;
+    const fx = fc.getContext('2d');
+    let angle = 0;
+
+    function drawFavicon() {
+        fx.clearRect(0, 0, 64, 64);
+
+        /* Deep plum background */
+        const bg = fx.createRadialGradient(32, 28, 4, 32, 32, 30);
+        bg.addColorStop(0, '#4a2880');
+        bg.addColorStop(1, '#1a0f2e');
+        fx.beginPath();
+        fx.arc(32, 32, 30, 0, Math.PI * 2);
+        fx.fillStyle = bg;
+        fx.fill();
+
+        /* Rotating <> */
+        fx.save();
+        fx.translate(32, 32);
+        fx.rotate(angle);
+        fx.font = 'bold 20px monospace';
+        fx.textAlign = 'center';
+        fx.textBaseline = 'middle';
+        fx.fillStyle = '#b07fd4';   /* jac-lt */
+        fx.fillText('<', -10, 0);
+        fx.fillStyle = '#e0b84a';   /* gold-lt */
+        fx.fillText('>', 10, 0);
+        fx.restore();
+
+        /* Outer ring */
+        fx.beginPath();
+        fx.arc(32, 32, 30, 0, Math.PI * 2);
+        fx.strokeStyle = 'rgba(176,127,212,0.5)';
+        fx.lineWidth = 2;
+        fx.stroke();
+
+        document.getElementById('favicon').href = fc.toDataURL('image/png');
+        angle += 0.04;
+        requestAnimationFrame(drawFavicon);
+    }
+
+    drawFavicon();
+})();
+
+/* ── Scroll reveal ── */
+const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 85);
+            io.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>

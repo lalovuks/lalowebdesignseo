@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Website Development in Johannesburg | Lalo Web Agency South Africa</title>
+    <meta name="description" content="Professional website development in Johannesburg, South Africa. Lalo Web Agency builds high-performance business websites, automation systems, and scalable digital solutions." />
+    <meta name="keywords" content="web design Johannesburg, website development Johannesburg, business websites South Africa, cloud websites Johannesburg, automation systems SA, Joburg web agency" />
+    <meta name="author" content="Lalo Web Agency" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://lalowebagency.biz/johannesburg.html" />
+    <meta property="og:title" content="Website Development in Johannesburg | Lalo Web Agency" />
+    <meta property="og:description" content="Cloud-based websites and business automation systems for companies in Johannesburg, South Africa." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://lalowebagency.biz/johannesburg.html" />
+    <meta property="og:image" content="https://lalowebagency.biz/images/preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Johannesburg Website Development - Lalo Web Agency" />
+    <meta name="twitter:description" content="Custom business websites & automation solutions for Johannesburg companies." />
+
+    <!-- Animated favicon -->
+    <link rel="icon" id="favicon" type="image/png" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Lalo Web Agency - Johannesburg",
+      "url": "https://lalowebagency.biz/johannesburg.html",
+      "description": "Professional website development and automation services in Johannesburg, South Africa.",
+      "areaServed": { "@type": "City", "name": "Johannesburg" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Johannesburg", "addressCountry": "South Africa" },
+      "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "areaServed": "Johannesburg" }
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --ink:        #0b0c0f;
+            --white:      #f8f9fc;
+            --slate:      #181b24;
+            --slate2:     #1f2330;
+            --gold:       #e8a020;
+            --gold-dim:   #c47d0e;
+            --sky:        #3a7bd5;
+            --sky-dim:    #2a5ca8;
+            --mid:        #6b7280;
+            --light:      #e8ecf4;
+            --border:     rgba(58,123,213,0.18);
+        }
+
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; }
+
+        body {
+            background: var(--white);
+            color: var(--ink);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            overflow-x: hidden;
+        }
+
+        /* ════════ NAV ════════ */
+        nav {
+            position: fixed;
+            top:0; left:0; right:0;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 64px;
+            background: rgba(11,12,15,0.95);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+            letter-spacing: 0.02em;
+        }
+        .logo span { color: var(--gold); }
+
+        nav ul { list-style:none; display:flex; gap:36px; align-items:center; }
+
+        nav ul a {
+            text-decoration: none;
+            color: rgba(248,249,252,0.5);
+            font-size: 0.76rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            font-weight: 400;
+            transition: color .2s;
+        }
+        nav ul a:hover { color: var(--gold); }
+
+        .nav-cta {
+            padding: 10px 26px !important;
+            background: var(--sky) !important;
+            color: var(--white) !important;
+            border-radius: 2px;
+            font-weight: 500 !important;
+            transition: background .2s !important;
+        }
+        .nav-cta:hover { background: var(--gold) !important; color: var(--ink) !important; }
+
+        /* ════════ HERO ════════ */
+        #hero {
+            min-height: 100vh;
+            background: var(--slate);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        /* City skyline SVG backdrop */
+        .hero-skyline {
+            position: absolute;
+            bottom: 60px;
+            left: 0; right: 0;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.06;
+        }
+
+        /* Grid overlay */
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(58,123,213,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(58,123,213,0.06) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Radial glow */
+        #hero::after {
+            content: '';
+            position: absolute;
+            top: -100px; left: -100px;
+            width: 700px; height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(58,123,213,0.1) 0%, transparent 65%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 110px 60px 140px 80px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 28px;
+        }
+        .hero-tag::before { content:''; width:28px; height:1px; background:var(--gold); }
+
+        #hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 5.5vw, 5.2rem);
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+            margin-bottom: 26px;
+        }
+        #hero h1 em { font-style:italic; color:var(--sky); }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: rgba(248,249,252,0.52);
+            line-height: 1.82;
+            max-width: 440px;
+            margin-bottom: 48px;
+        }
+
+        .hero-actions { display:flex; gap:18px; align-items:center; flex-wrap:wrap; }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 34px;
+            background: var(--sky);
+            color: var(--white);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            border-radius: 2px;
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow .3s;
+        }
+        .btn-primary::after {
+            content:'';
+            position:absolute;
+            inset:0;
+            background:var(--gold);
+            transform:translateX(-100%);
+            transition:transform .35s ease;
+        }
+        .btn-primary:hover::after { transform:translateX(0); }
+        .btn-primary:hover { box-shadow: 0 0 30px rgba(232,160,32,0.25); }
+        .btn-primary span { position:relative; z-index:1; color:var(--ink); }
+
+        .btn-ghost {
+            font-size: 0.76rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(248,249,252,0.4);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color .2s;
+        }
+        .btn-ghost:hover { color:var(--gold); }
+        .btn-ghost::after { content:'↓'; font-size:1rem; }
+
+        /* Hero right — joburg stat card */
+        .hero-right {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 5;
+            padding: 60px 80px 140px 20px;
+        }
+
+        .city-card {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+        }
+
+        .city-card-main {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(58,123,213,0.25);
+            border-radius: 8px;
+            padding: 40px;
+            backdrop-filter: blur(8px);
+        }
+
+        .city-card-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: rgba(248,249,252,0.35);
+            margin-bottom: 6px;
+        }
+
+        .city-card-city {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .city-card-sub {
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            color: var(--sky);
+            margin-bottom: 36px;
+        }
+
+        .city-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: rgba(58,123,213,0.12);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .metric {
+            background: rgba(15,16,20,0.6);
+            padding: 20px;
+        }
+
+        .metric-val {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .metric-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(248,249,252,0.35);
+        }
+
+        /* Floating badge */
+        .city-badge {
+            position: absolute;
+            top: -18px; right: -18px;
+            width: 80px; height: 80px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .city-badge span {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.3;
+        }
+
+        /* Pulse ring on badge */
+        @keyframes pulse-ring {
+            0%   { transform:scale(1);   opacity:.5; }
+            100% { transform:scale(1.5); opacity:0; }
+        }
+        .city-badge::before {
+            content:'';
+            position:absolute;
+            inset:0;
+            border-radius:50%;
+            border: 2px solid var(--gold);
+            animation: pulse-ring 2s ease-out infinite;
+        }
+
+        /* Stats bar */
+        .hero-stats {
+            position: absolute;
+            bottom:0; left:0; right:0;
+            display: flex;
+            border-top: 1px solid rgba(58,123,213,0.12);
+            z-index: 5;
+        }
+
+        .stat-item {
+            flex:1;
+            padding: 26px 40px;
+            border-right: 1px solid rgba(58,123,213,0.1);
+        }
+        .stat-item:last-child { border-right:none; }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--sky);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 0.68rem;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: rgba(248,249,252,0.3);
+        }
+
+        /* ════════ SECTION SHARED ════════ */
+        .section-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--sky);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+        .section-tag::before { content:''; width:22px; height:1px; background:var(--sky); }
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 68px;
+            gap: 40px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 3.5vw, 3.1rem);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        .section-title em { font-style:italic; color:var(--sky); }
+
+        .section-desc {
+            max-width: 300px;
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--mid);
+            text-align: right;
+        }
+
+        /* ════════ SERVICES ════════ */
+        #services {
+            background: var(--white);
+            padding: 120px 80px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            background: var(--light);
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 52px 46px;
+            position: relative;
+            overflow: hidden;
+            transition: background .3s;
+        }
+
+        .service-card::before {
+            content:'';
+            position:absolute;
+            top:0; left:0;
+            width:3px; height:0;
+            background: linear-gradient(to bottom, var(--sky), var(--gold));
+            transition: height .4s ease;
+        }
+
+        .service-card:hover { background:#f5f7fc; }
+        .service-card:hover::before { height:100%; }
+
+        .service-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--light);
+            line-height: 1;
+            margin-bottom: 22px;
+            transition: color .3s;
+            user-select: none;
+        }
+        .service-card:hover .service-num { color: rgba(58,123,213,0.1); }
+
+        .service-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            font-size: 0.92rem;
+            line-height: 1.8;
+            color: var(--mid);
+        }
+
+        .service-arrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 22px;
+            font-size: 0.73rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--sky);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all .3s;
+        }
+        .service-card:hover .service-arrow { opacity:1; transform:translateX(0); }
+
+        /* ════════ INDUSTRIES ════════ */
+        #solutions {
+            background: var(--slate);
+            padding: 120px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #solutions::after {
+            content:'';
+            position:absolute;
+            right:-120px; bottom:-120px;
+            width:500px; height:500px;
+            border-radius:50%;
+            border:80px solid rgba(232,160,32,0.05);
+            pointer-events:none;
+        }
+
+        #solutions .section-title { color:var(--white); }
+        #solutions .section-desc  { color:rgba(248,249,252,0.38); }
+        #solutions .section-tag   { color:var(--gold); }
+        #solutions .section-tag::before { background:var(--gold); }
+
+        .industries-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+
+        .industries-list li {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(58,123,213,0.1);
+            padding: 36px 32px;
+            font-size: 0.95rem;
+            color: rgba(248,249,252,0.65);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: all .3s;
+            cursor: default;
+            line-height: 1.4;
+        }
+
+        .industries-list li::before {
+            content:'';
+            width:6px; height:6px;
+            border-radius:50%;
+            background: var(--sky);
+            flex-shrink:0;
+            transition: transform .3s, background .3s;
+        }
+
+        .industries-list li:hover {
+            background: rgba(58,123,213,0.07);
+            border-color: rgba(58,123,213,0.3);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        .industries-list li:hover::before { transform:scale(1.8); background:var(--gold); }
+
+        /* ════════ PROCESS ════════ */
+        #process {
+            padding: 120px 80px;
+            background: #f0f3fb;
+        }
+
+        .process-steps {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            margin-top: 72px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content:'';
+            position:absolute;
+            top:27px; left:9%; right:9%;
+            height:1px;
+            background: linear-gradient(to right, transparent, var(--sky), var(--gold), var(--sky), transparent);
+        }
+
+        .process-steps li {
+            padding: 0 14px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .step-num {
+            width:54px; height:54px;
+            border-radius:50%;
+            background: var(--white);
+            border: 2px solid var(--sky);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--sky);
+            margin-bottom: 26px;
+            position: relative;
+            z-index: 2;
+            transition: all .3s;
+            flex-shrink: 0;
+        }
+
+        .process-steps li:hover .step-num {
+            background: var(--sky);
+            color: var(--white);
+            transform: scale(1.15);
+        }
+
+        .process-steps li strong {
+            font-size: 0.84rem;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 10px;
+            color: var(--ink);
+            line-height: 1.4;
+        }
+
+        .process-steps li p {
+            font-size: 0.76rem;
+            color: var(--mid);
+            line-height: 1.65;
+        }
+
+        /* ════════ WHY ════════ */
+        #why {
+            padding: 120px 80px;
+            background: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .why-visual {
+            position: relative;
+            height: 480px;
+        }
+
+        .why-dark {
+            position: absolute;
+            inset: 0 70px 70px 0;
+            background: var(--slate);
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-end;
+            padding: 36px;
+        }
+
+        .why-quote {
+            font-style: italic;
+            font-size: 0.9rem;
+            line-height: 1.75;
+            color: rgba(248,249,252,0.4);
+        }
+
+        .why-accent {
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 210px; height: 210px;
+            background: var(--sky);
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 24px;
+        }
+
+        .why-big-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            color: var(--white);
+            line-height: 1;
+        }
+
+        .why-big-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(248,249,252,0.58);
+            margin-top: 8px;
+        }
+
+        .why-circle {
+            position: absolute;
+            top: -24px; left: -24px;
+            width: 148px; height: 148px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .why-circle span {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--ink);
+            text-align: center;
+            line-height: 1.4;
+            padding: 16px;
+        }
+
+        .why-content p {
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: var(--mid);
+            margin-top: 22px;
+        }
+        .why-content p + p { margin-top:14px; }
+        .why-content .btn-primary { margin-top:36px; display:inline-block; }
+
+        /* ════════ CONTACT ════════ */
+        #contact {
+            background: var(--ink);
+            padding: 100px 80px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact::before {
+            content:'';
+            position:absolute;
+            right:-200px; bottom:-200px;
+            width:600px; height:600px;
+            border-radius:50%;
+            background: radial-gradient(circle, rgba(58,123,213,0.1) 0%, transparent 70%);
+            pointer-events:none;
+        }
+
+        .contact-left .section-title { color:var(--white); }
+        .contact-left .section-tag   { color:var(--gold); }
+        .contact-left .section-tag::before { background:var(--gold); }
+
+        .contact-left p {
+            color: rgba(248,249,252,0.45);
+            font-size: 0.95rem;
+            line-height: 1.82;
+            margin-top: 20px;
+        }
+
+        .contact-right {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(58,123,213,0.18);
+            padding: 52px 46px;
+            border-radius: 4px;
+        }
+
+        .contact-right .btn-primary {
+            display:block;
+            text-align:center;
+            font-size:0.85rem;
+            padding:20px;
+            margin-bottom:14px;
+        }
+
+        .contact-email {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 17px;
+            border: 1px solid rgba(58,123,213,0.22);
+            border-radius: 2px;
+            color: rgba(248,249,252,0.52);
+            text-decoration: none;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            transition: all .25s;
+        }
+        .contact-email:hover { border-color:var(--gold); color:var(--gold); }
+
+        .contact-details {
+            margin-top: 28px;
+            padding-top: 26px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .contact-detail label {
+            font-size: 0.62rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(248,249,252,0.26);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-detail span {
+            font-size: 0.82rem;
+            color: rgba(248,249,252,0.6);
+        }
+
+        /* ════════ FOOTER ════════ */
+        footer {
+            background: var(--slate2);
+            padding: 36px 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(58,123,213,0.12);
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .footer-logo span { color: var(--gold); }
+
+        .footer-links { display:flex; gap:28px; }
+        .footer-links a {
+            text-decoration: none;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(248,249,252,0.32);
+            transition: color .2s;
+        }
+        .footer-links a:hover { color:var(--gold); }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            color: rgba(248,249,252,0.2);
+        }
+
+        /* ════════ REVEAL ════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity .72s ease, transform .72s ease;
+        }
+        .reveal.visible { opacity:1; transform:translateY(0); }
+
+        /* ════════ HERO ANIMATIONS ════════ */
+        @keyframes fadeUp {
+            from { opacity:0; transform:translateY(28px); }
+            to   { opacity:1; transform:translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity:0; }
+            to   { opacity:1; }
+        }
+
+        .hero-tag     { animation: fadeUp .8s ease .15s both; }
+        #hero h1      { animation: fadeUp .9s ease .30s both; }
+        .hero-desc    { animation: fadeUp .9s ease .45s both; }
+        .hero-actions { animation: fadeUp .9s ease .60s both; }
+        .hero-right   { animation: fadeIn 1.1s ease .5s both; }
+        .stat-item:nth-child(1){ animation: fadeUp .7s ease .70s both; }
+        .stat-item:nth-child(2){ animation: fadeUp .7s ease .85s both; }
+        .stat-item:nth-child(3){ animation: fadeUp .7s ease 1.0s both; }
+
+        /* ════════ RESPONSIVE ════════ */
+        @media (max-width:1080px) {
+            nav { padding:20px 32px; }
+            #hero { grid-template-columns:1fr; }
+            .hero-right { display:none; }
+            .hero-left { padding:80px 36px; }
+            .services-grid { grid-template-columns:1fr; }
+            .industries-list { grid-template-columns:1fr 1fr; }
+            .process-steps { grid-template-columns:1fr 1fr 1fr; row-gap:48px; }
+            .process-steps::before { display:none; }
+            #why { grid-template-columns:1fr; }
+            .why-visual { display:none; }
+            #contact { grid-template-columns:1fr; }
+            footer { flex-direction:column; gap:16px; text-align:center; }
+            #services, #solutions, #process, #why, #contact { padding:80px 36px; }
+            .section-header { flex-direction:column; }
+            .section-desc { text-align:left; max-width:100%; }
+        }
+        @media (max-width:640px) {
+            nav ul { display:none; }
+            .hero-stats { flex-direction:column; }
+            .industries-list { grid-template-columns:1fr; }
+            .process-steps { grid-template-columns:1fr; }
+            .contact-details { grid-template-columns:1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+    <a href="https://www.lalowebagency.biz/" class="logo">Lalo<span>web</span>agency</a>
+    <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#solutions">Industries</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform" class="nav-cta" target="_blank" rel="noopener">Get Started</a></li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+
+    <!-- Joburg skyline SVG silhouette -->
+    <svg class="hero-skyline" viewBox="0 0 1440 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet">
+        <path fill="white" d="
+            M0,240 L0,180 L40,180 L40,160 L55,160 L55,140 L70,140 L70,120 L80,120 L80,100
+            L90,100 L90,80 L95,80 L95,60 L100,60 L100,55 L103,55 L103,50 L107,50 L107,55 L110,55
+            L110,60 L115,60 L115,80 L120,80 L120,100 L130,100 L130,120 L145,120 L145,140
+            L160,140 L160,130 L170,130 L170,110 L175,110 L175,90 L178,90 L178,70 L182,70
+            L182,90 L185,90 L185,110 L190,110 L190,130 L200,130 L200,140 L220,140 L220,160
+            L260,160 L260,150 L270,150 L270,130 L280,130 L280,110 L285,110 L285,90 L290,90
+            L290,70 L295,70 L295,50 L298,50 L298,40 L302,40 L302,50 L305,50 L305,70 L310,70
+            L310,90 L315,90 L315,110 L320,110 L320,130 L330,130 L330,150 L340,150 L340,160
+            L380,160 L380,155 L390,155 L390,140 L400,140 L400,120 L405,120 L405,100 L408,100
+            L408,80 L411,80 L411,60 L415,60 L415,80 L418,80 L418,100 L421,100 L421,120
+            L426,120 L426,140 L436,140 L436,155 L446,155 L446,160 L480,160 L480,150 L500,150
+            L500,135 L510,135 L510,115 L520,115 L520,95 L525,95 L525,75 L530,75 L530,95
+            L535,95 L535,115 L545,115 L545,135 L555,135 L555,150 L575,150 L575,160 L620,160
+            L620,145 L635,145 L635,125 L645,125 L645,105 L650,105 L650,85 L655,85 L655,65
+            L658,65 L658,45 L661,45 L661,65 L664,65 L664,85 L669,85 L669,105 L674,105
+            L674,125 L684,125 L684,145 L699,145 L699,160 L740,160 L740,155 L760,155 L760,140
+            L770,140 L770,120 L775,120 L775,100 L780,100 L780,120 L785,120 L785,140 L795,140
+            L795,155 L815,155 L815,160 L860,160 L860,150 L880,150 L880,135 L890,135 L890,115
+            L895,115 L895,95 L900,95 L900,115 L905,115 L905,135 L915,135 L915,150 L935,150
+            L935,160 L980,160 L980,155 L1000,155 L1000,140 L1010,140 L1010,120 L1015,120
+            L1015,100 L1020,100 L1020,120 L1025,120 L1025,140 L1035,140 L1035,155 L1055,155
+            L1055,160 L1100,160 L1100,150 L1120,150 L1120,135 L1130,135 L1130,115 L1140,115
+            L1140,100 L1145,100 L1145,80 L1148,80 L1148,100 L1152,100 L1152,115 L1160,115
+            L1160,135 L1170,135 L1170,150 L1190,150 L1190,160 L1230,160 L1230,155 L1250,155
+            L1250,140 L1260,140 L1260,155 L1280,155 L1280,160 L1310,160 L1310,155 L1330,155
+            L1330,140 L1340,140 L1340,155 L1360,155 L1360,160 L1440,160 L1440,240 Z
+        "/>
+    </svg>
+
+    <div class="hero-left">
+        <div class="hero-tag">Johannesburg, South Africa</div>
+        <h1>Joburg Businesses<br>Built to Win <em>Online</em></h1>
+        <p class="hero-desc">We design high-converting business websites and automation systems for companies in South Africa's economic powerhouse.</p>
+        <div class="hero-actions">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+               class="btn-primary" target="_blank" rel="noopener">
+               <span>Request Free Consultation</span>
+            </a>
+            <a href="#services" class="btn-ghost">Explore services</a>
+        </div>
+    </div>
+
+    <div class="hero-right">
+        <div class="city-card">
+            <div class="city-badge"><span>SA's<br>#1 City</span></div>
+            <div class="city-card-main">
+                <div class="city-card-label">Service Location</div>
+                <div class="city-card-city">Johannesburg</div>
+                <div class="city-card-sub">South Africa · Economic Hub</div>
+                <div class="city-metrics">
+                    <div class="metric">
+                        <div class="metric-val">100%</div>
+                        <div class="metric-label">Cloud Native</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-val">5+</div>
+                        <div class="metric-label">Industries</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-val">SEO</div>
+                        <div class="metric-label">Optimized</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-val">24h</div>
+                        <div class="metric-label">Response</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-stats">
+        <div class="stat-item">
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Cloud-native builds</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">5+</div>
+            <div class="stat-label">Industries served</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-num">∞</div>
+            <div class="stat-label">Scalable infrastructure</div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">What we do</div>
+            <h2 class="section-title">Web Services Built for<br><em>Johannesburg</em></h2>
+        </div>
+        <p class="section-desc">Every solution is designed for the Joburg market — fast, scalable, and conversion-focused.</p>
+    </div>
+
+    <div class="services-grid">
+        <div class="service-card reveal">
+            <div class="service-num">01</div>
+            <h3>Professional Business Websites</h3>
+            <p>Modern, mobile-friendly, and SEO-optimized websites built to help Johannesburg businesses generate leads and increase revenue consistently.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">02</div>
+            <h3>E-Commerce Website Development</h3>
+            <p>Launch powerful online stores with secure payment gateways and scalable cloud infrastructure tailored to the South African market.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">03</div>
+            <h3>Business Process Automation</h3>
+            <p>Automate bookings, CRM systems, invoicing, and daily operations to reduce costs and dramatically increase efficiency across your Joburg business.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+        <div class="service-card reveal">
+            <div class="service-num">04</div>
+            <h3>Custom Software & API Integration</h3>
+            <p>Robust backend systems, secure API integrations, and scalable cloud-based applications built for Johannesburg enterprises with complex needs.</p>
+            <div class="service-arrow">Learn more →</div>
+        </div>
+    </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="solutions">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">Industries</div>
+            <h2 class="section-title">We Serve Joburg's<br><em>Key Sectors</em></h2>
+        </div>
+        <p class="section-desc">From construction to professional services — we know the Johannesburg market.</p>
+    </div>
+
+    <ul class="industries-list">
+        <li class="reveal">Construction &amp; Engineering Firms</li>
+        <li class="reveal">Real Estate Agencies</li>
+        <li class="reveal">Retail &amp; E-commerce Businesses</li>
+        <li class="reveal">Professional Service Providers</li>
+        <li class="reveal">Startups &amp; Growing Enterprises</li>
+        <li class="reveal">Finance &amp; Corporate Clients</li>
+    </ul>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+    <div class="section-header reveal">
+        <div>
+            <div class="section-tag">How it works</div>
+            <h2 class="section-title">Our <em>5-Step</em><br>Development Process</h2>
+        </div>
+        <p class="section-desc">A clear path from strategy to launch, built for Joburg businesses.</p>
+    </div>
+
+    <ol class="process-steps">
+        <li class="reveal">
+            <div class="step-num">1</div>
+            <strong>Strategy &amp; Planning</strong>
+            <p>Understanding your Johannesburg market and defining growth goals.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">2</div>
+            <strong>Architecture Design</strong>
+            <p>Secure, scalable cloud-first infrastructure built to last.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">3</div>
+            <strong>Development</strong>
+            <p>Clean code, performance optimization and full SEO integration.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">4</div>
+            <strong>Deployment</strong>
+            <p>Fast hosting setup and search engine indexing configured.</p>
+        </li>
+        <li class="reveal">
+            <div class="step-num">5</div>
+            <strong>Growth &amp; Optimization</strong>
+            <p>Ongoing monitoring, automation upgrades, and continuous scaling.</p>
+        </li>
+    </ol>
+</section>
+
+<!-- WHY -->
+<section id="why">
+    <div class="why-visual reveal">
+        <div class="why-dark">
+            <p class="why-quote">"Johannesburg is South Africa's economic powerhouse — businesses here need modern digital systems to remain competitive and convert online visitors into paying customers."</p>
+        </div>
+        <div class="why-accent">
+            <div class="why-big-num">5★</div>
+            <div class="why-big-label">Client Satisfaction</div>
+        </div>
+        <div class="why-circle">
+            <span>Joburg<br>Ready</span>
+        </div>
+    </div>
+
+    <div class="why-content reveal">
+        <div class="section-tag">Why choose us</div>
+        <h2 class="section-title">Why Joburg Businesses<br>Choose <em>Lalowebagency</em></h2>
+        <p>Johannesburg is South Africa's economic powerhouse, and businesses here require modern digital systems to remain competitive. We build high-performance websites designed to convert visitors into paying customers.</p>
+        <p>Our approach combines strategic design, automation tools, and cloud infrastructure to help Joburg businesses scale faster and operate more efficiently — without ballooning overhead costs.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+           class="btn-primary" target="_blank" rel="noopener">
+           <span>Start Your Project →</span>
+        </a>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="contact-left reveal">
+        <div class="section-tag">Get in touch</div>
+        <h2 class="section-title">Grow Your<br><em>Johannesburg</em> Business</h2>
+        <p>Book a consultation and discover how a professional website and automation system can transform your Joburg business into a digital powerhouse.</p>
+    </div>
+
+    <div class="contact-right reveal">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdOpzYn1BInVkMDqe1aLhd_K3kzKIMhJBOc3PiWJVjTRGybQA/viewform"
+           class="btn-primary" target="_blank" rel="noopener">
+           <span>Request Free Consultation</span>
+        </a>
+        
+        <div class="contact-details">
+            <div class="contact-detail">
+                <label>Location</label>
+                <span>Johannesburg, SA</span>
+            </div>
+            <div class="contact-detail">
+                <label>Response time</label>
+                <span>Within 24 hours</span>
+            </div>
+            <div class="contact-detail">
+                <label>Consultation</label>
+                <span>Free &amp; no-obligation</span>
+            </div>
+            <div class="contact-detail">
+                <label>Website</label>
+                <span>lalowebagency.biz</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <a href="https://www.lalowebagency.biz/" class="footer-logo">Lalo<span>web</span>agency</a>
+    <div class="footer-links">
+        <a href="https://lalowebagency.biz">Main Site</a>
+        <a href="https://lalowebagency.biz">Services</a>
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 Lalo Web Agency</div>
+</footer>
+
+<script>
+/* ── Spinning code favicon ── */
+(function () {
+    const fc = document.createElement('canvas');
+    fc.width = fc.height = 64;
+    const fx = fc.getContext('2d');
+    let angle = 0;
+
+    function drawFavicon() {
+        fx.clearRect(0, 0, 64, 64);
+
+        // Background
+        fx.beginPath();
+        fx.arc(32, 32, 30, 0, Math.PI * 2);
+        fx.fillStyle = '#181b24';
+        fx.fill();
+
+        // Rotate brackets
+        fx.save();
+        fx.translate(32, 32);
+        fx.rotate(angle);
+
+        fx.font = 'bold 20px monospace';
+        fx.textAlign = 'center';
+        fx.textBaseline = 'middle';
+
+        fx.fillStyle = '#3a7bd5';
+        fx.fillText('<', -10, 0);
+
+        fx.fillStyle = '#e8a020';
+        fx.fillText('>', 10, 0);
+
+        fx.restore();
+
+        // Outer ring — gold
+        fx.beginPath();
+        fx.arc(32, 32, 30, 0, Math.PI * 2);
+        fx.strokeStyle = 'rgba(232,160,32,0.55)';
+        fx.lineWidth = 2;
+        fx.stroke();
+
+        document.getElementById('favicon').href = fc.toDataURL('image/png');
+        angle += 0.04;
+        requestAnimationFrame(drawFavicon);
+    }
+
+    drawFavicon();
+})();
+
+/* ── Scroll reveal ── */
+const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 90);
+            io.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
